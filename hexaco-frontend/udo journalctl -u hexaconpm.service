@@ -1,0 +1,784 @@
+-- Logs begin at Tue 2023-06-13 12:55:16 +05, end at Sun 2023-09-03 06:24:45 +05. --
+Sep 03 05:32:06 45466.vm systemd[1]: Started HEXACO Node.js Application.
+Sep 03 05:32:08 45466.vm npm[2171723]: > hexaco-frontend@0.1.0 start /root/hexaco-frontend
+Sep 03 05:32:08 45466.vm npm[2171723]: > react-scripts start
+Sep 03 05:32:12 45466.vm npm[2171770]: /root/hexaco-frontend/node_modules/eslint-webpack-plugin/node_modules/jest-worker/build/index.js:110
+Sep 03 05:32:12 45466.vm npm[2171770]:   _ending;
+Sep 03 05:32:12 45466.vm npm[2171770]:          ^
+Sep 03 05:32:12 45466.vm npm[2171770]: SyntaxError: Unexpected token ;
+Sep 03 05:32:12 45466.vm npm[2171770]:     at Module._compile (internal/modules/cjs/loader.js:723:23)
+Sep 03 05:32:12 45466.vm npm[2171770]:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+Sep 03 05:32:12 45466.vm npm[2171770]:     at Module.load (internal/modules/cjs/loader.js:653:32)
+Sep 03 05:32:12 45466.vm npm[2171770]:     at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+Sep 03 05:32:12 45466.vm npm[2171770]:     at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+Sep 03 05:32:12 45466.vm npm[2171770]:     at Module.require (internal/modules/cjs/loader.js:692:17)
+Sep 03 05:32:12 45466.vm npm[2171770]:     at require (internal/modules/cjs/helpers.js:25:18)
+Sep 03 05:32:12 45466.vm npm[2171770]:     at Object.<anonymous> (/root/hexaco-frontend/node_modules/eslint-webpack-plugin/dist/getESLint.js:9:5)
+Sep 03 05:32:12 45466.vm npm[2171770]:     at Module._compile (internal/modules/cjs/loader.js:778:30)
+Sep 03 05:32:12 45466.vm npm[2171770]:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+Sep 03 05:32:12 45466.vm npm[2171723]: npm ERR! code ELIFECYCLE
+Sep 03 05:32:12 45466.vm npm[2171723]: npm ERR! errno 1
+Sep 03 05:32:12 45466.vm npm[2171723]: npm ERR! hexaco-frontend@0.1.0 start: `react-scripts start`
+Sep 03 05:32:12 45466.vm npm[2171723]: npm ERR! Exit status 1
+Sep 03 05:32:12 45466.vm npm[2171723]: npm ERR!
+Sep 03 05:32:12 45466.vm npm[2171723]: npm ERR! Failed at the hexaco-frontend@0.1.0 start script.
+Sep 03 05:32:12 45466.vm npm[2171723]: npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+Sep 03 05:32:12 45466.vm npm[2171723]: npm ERR! A complete log of this run can be found in:
+Sep 03 05:32:12 45466.vm npm[2171723]: npm ERR!     /root/.npm/_logs/2023-09-03T00_32_12_399Z-debug.log
+Sep 03 05:32:12 45466.vm systemd[1]: [0;1;39m[0;1;31m[0;1;39mhexaconpm.service: Main process exited, code=exited, status=1/FAILURE[0m
+Sep 03 05:32:12 45466.vm systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mhexaconpm.service: Failed with result 'exit-code'.[0m
+Sep 03 05:32:12 45466.vm systemd[1]: hexaconpm.service: Scheduled restart job, restart counter is at 1.
+Sep 03 05:32:12 45466.vm systemd[1]: Stopped HEXACO Node.js Application.
+Sep 03 05:32:12 45466.vm systemd[1]: Started HEXACO Node.js Application.
+Sep 03 05:32:13 45466.vm npm[2171783]: > hexaco-frontend@0.1.0 start /root/hexaco-frontend
+Sep 03 05:32:13 45466.vm npm[2171783]: > react-scripts start
+Sep 03 05:32:16 45466.vm npm[2171813]: /root/hexaco-frontend/node_modules/eslint-webpack-plugin/node_modules/jest-worker/build/index.js:110
+Sep 03 05:32:16 45466.vm npm[2171813]:   _ending;
+Sep 03 05:32:16 45466.vm npm[2171813]:          ^
+Sep 03 05:32:16 45466.vm npm[2171813]: SyntaxError: Unexpected token ;
+Sep 03 05:32:16 45466.vm npm[2171813]:     at Module._compile (internal/modules/cjs/loader.js:723:23)
+Sep 03 05:32:16 45466.vm npm[2171813]:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+Sep 03 05:32:16 45466.vm npm[2171813]:     at Module.load (internal/modules/cjs/loader.js:653:32)
+Sep 03 05:32:16 45466.vm npm[2171813]:     at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+Sep 03 05:32:16 45466.vm npm[2171813]:     at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+Sep 03 05:32:16 45466.vm npm[2171813]:     at Module.require (internal/modules/cjs/loader.js:692:17)
+Sep 03 05:32:16 45466.vm npm[2171813]:     at require (internal/modules/cjs/helpers.js:25:18)
+Sep 03 05:32:16 45466.vm npm[2171813]:     at Object.<anonymous> (/root/hexaco-frontend/node_modules/eslint-webpack-plugin/dist/getESLint.js:9:5)
+Sep 03 05:32:16 45466.vm npm[2171813]:     at Module._compile (internal/modules/cjs/loader.js:778:30)
+Sep 03 05:32:16 45466.vm npm[2171813]:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+Sep 03 05:32:16 45466.vm npm[2171783]: npm ERR! code ELIFECYCLE
+Sep 03 05:32:16 45466.vm npm[2171783]: npm ERR! errno 1
+Sep 03 05:32:16 45466.vm npm[2171783]: npm ERR! hexaco-frontend@0.1.0 start: `react-scripts start`
+Sep 03 05:32:16 45466.vm npm[2171783]: npm ERR! Exit status 1
+Sep 03 05:32:16 45466.vm npm[2171783]: npm ERR!
+Sep 03 05:32:16 45466.vm npm[2171783]: npm ERR! Failed at the hexaco-frontend@0.1.0 start script.
+Sep 03 05:32:16 45466.vm npm[2171783]: npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+Sep 03 05:32:16 45466.vm npm[2171783]: npm ERR! A complete log of this run can be found in:
+Sep 03 05:32:16 45466.vm npm[2171783]: npm ERR!     /root/.npm/_logs/2023-09-03T00_32_16_242Z-debug.log
+Sep 03 05:32:16 45466.vm systemd[1]: [0;1;39m[0;1;31m[0;1;39mhexaconpm.service: Main process exited, code=exited, status=1/FAILURE[0m
+Sep 03 05:32:16 45466.vm systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mhexaconpm.service: Failed with result 'exit-code'.[0m
+Sep 03 05:32:16 45466.vm systemd[1]: hexaconpm.service: Scheduled restart job, restart counter is at 2.
+Sep 03 05:32:16 45466.vm systemd[1]: Stopped HEXACO Node.js Application.
+Sep 03 05:32:16 45466.vm systemd[1]: Started HEXACO Node.js Application.
+Sep 03 05:32:17 45466.vm npm[2171833]: > hexaco-frontend@0.1.0 start /root/hexaco-frontend
+Sep 03 05:32:17 45466.vm npm[2171833]: > react-scripts start
+Sep 03 05:32:20 45466.vm npm[2171855]: /root/hexaco-frontend/node_modules/eslint-webpack-plugin/node_modules/jest-worker/build/index.js:110
+Sep 03 05:32:20 45466.vm npm[2171855]:   _ending;
+Sep 03 05:32:20 45466.vm npm[2171855]:          ^
+Sep 03 05:32:20 45466.vm npm[2171855]: SyntaxError: Unexpected token ;
+Sep 03 05:32:20 45466.vm npm[2171855]:     at Module._compile (internal/modules/cjs/loader.js:723:23)
+Sep 03 05:32:20 45466.vm npm[2171855]:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+Sep 03 05:32:20 45466.vm npm[2171855]:     at Module.load (internal/modules/cjs/loader.js:653:32)
+Sep 03 05:32:20 45466.vm npm[2171855]:     at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+Sep 03 05:32:20 45466.vm npm[2171855]:     at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+Sep 03 05:32:20 45466.vm npm[2171855]:     at Module.require (internal/modules/cjs/loader.js:692:17)
+Sep 03 05:32:20 45466.vm npm[2171855]:     at require (internal/modules/cjs/helpers.js:25:18)
+Sep 03 05:32:20 45466.vm npm[2171855]:     at Object.<anonymous> (/root/hexaco-frontend/node_modules/eslint-webpack-plugin/dist/getESLint.js:9:5)
+Sep 03 05:32:20 45466.vm npm[2171855]:     at Module._compile (internal/modules/cjs/loader.js:778:30)
+Sep 03 05:32:20 45466.vm npm[2171855]:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+Sep 03 05:32:20 45466.vm npm[2171833]: npm ERR! code ELIFECYCLE
+Sep 03 05:32:20 45466.vm npm[2171833]: npm ERR! errno 1
+Sep 03 05:32:20 45466.vm npm[2171833]: npm ERR! hexaco-frontend@0.1.0 start: `react-scripts start`
+Sep 03 05:32:20 45466.vm npm[2171833]: npm ERR! Exit status 1
+Sep 03 05:32:20 45466.vm npm[2171833]: npm ERR!
+Sep 03 05:32:20 45466.vm npm[2171833]: npm ERR! Failed at the hexaco-frontend@0.1.0 start script.
+Sep 03 05:32:20 45466.vm npm[2171833]: npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+Sep 03 05:32:20 45466.vm npm[2171833]: npm ERR! A complete log of this run can be found in:
+Sep 03 05:32:20 45466.vm npm[2171833]: npm ERR!     /root/.npm/_logs/2023-09-03T00_32_20_186Z-debug.log
+Sep 03 05:32:20 45466.vm systemd[1]: [0;1;39m[0;1;31m[0;1;39mhexaconpm.service: Main process exited, code=exited, status=1/FAILURE[0m
+Sep 03 05:32:20 45466.vm systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mhexaconpm.service: Failed with result 'exit-code'.[0m
+Sep 03 05:32:20 45466.vm systemd[1]: hexaconpm.service: Scheduled restart job, restart counter is at 3.
+Sep 03 05:32:20 45466.vm systemd[1]: Stopped HEXACO Node.js Application.
+Sep 03 05:32:20 45466.vm systemd[1]: Started HEXACO Node.js Application.
+Sep 03 05:32:21 45466.vm npm[2171862]: > hexaco-frontend@0.1.0 start /root/hexaco-frontend
+Sep 03 05:32:21 45466.vm npm[2171862]: > react-scripts start
+Sep 03 05:32:24 45466.vm npm[2171881]: /root/hexaco-frontend/node_modules/eslint-webpack-plugin/node_modules/jest-worker/build/index.js:110
+Sep 03 05:32:24 45466.vm npm[2171881]:   _ending;
+Sep 03 05:32:24 45466.vm npm[2171881]:          ^
+Sep 03 05:32:24 45466.vm npm[2171881]: SyntaxError: Unexpected token ;
+Sep 03 05:32:24 45466.vm npm[2171881]:     at Module._compile (internal/modules/cjs/loader.js:723:23)
+Sep 03 05:32:24 45466.vm npm[2171881]:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+Sep 03 05:32:24 45466.vm npm[2171881]:     at Module.load (internal/modules/cjs/loader.js:653:32)
+Sep 03 05:32:24 45466.vm npm[2171881]:     at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+Sep 03 05:32:24 45466.vm npm[2171881]:     at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+Sep 03 05:32:24 45466.vm npm[2171881]:     at Module.require (internal/modules/cjs/loader.js:692:17)
+Sep 03 05:32:24 45466.vm npm[2171881]:     at require (internal/modules/cjs/helpers.js:25:18)
+Sep 03 05:32:24 45466.vm npm[2171881]:     at Object.<anonymous> (/root/hexaco-frontend/node_modules/eslint-webpack-plugin/dist/getESLint.js:9:5)
+Sep 03 05:32:24 45466.vm npm[2171881]:     at Module._compile (internal/modules/cjs/loader.js:778:30)
+Sep 03 05:32:24 45466.vm npm[2171881]:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+Sep 03 05:32:24 45466.vm npm[2171862]: npm ERR! code ELIFECYCLE
+Sep 03 05:32:24 45466.vm npm[2171862]: npm ERR! errno 1
+Sep 03 05:32:24 45466.vm npm[2171862]: npm ERR! hexaco-frontend@0.1.0 start: `react-scripts start`
+Sep 03 05:32:24 45466.vm npm[2171862]: npm ERR! Exit status 1
+Sep 03 05:32:24 45466.vm npm[2171862]: npm ERR!
+Sep 03 05:32:24 45466.vm npm[2171862]: npm ERR! Failed at the hexaco-frontend@0.1.0 start script.
+Sep 03 05:32:24 45466.vm npm[2171862]: npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+Sep 03 05:32:24 45466.vm npm[2171862]: npm ERR! A complete log of this run can be found in:
+Sep 03 05:32:24 45466.vm npm[2171862]: npm ERR!     /root/.npm/_logs/2023-09-03T00_32_24_022Z-debug.log
+Sep 03 05:32:24 45466.vm systemd[1]: [0;1;39m[0;1;31m[0;1;39mhexaconpm.service: Main process exited, code=exited, status=1/FAILURE[0m
+Sep 03 05:32:24 45466.vm systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mhexaconpm.service: Failed with result 'exit-code'.[0m
+Sep 03 05:32:24 45466.vm systemd[1]: hexaconpm.service: Scheduled restart job, restart counter is at 4.
+Sep 03 05:32:24 45466.vm systemd[1]: Stopped HEXACO Node.js Application.
+Sep 03 05:32:24 45466.vm systemd[1]: Started HEXACO Node.js Application.
+Sep 03 05:32:25 45466.vm npm[2171901]: > hexaco-frontend@0.1.0 start /root/hexaco-frontend
+Sep 03 05:32:25 45466.vm npm[2171901]: > react-scripts start
+Sep 03 05:32:27 45466.vm npm[2171953]: /root/hexaco-frontend/node_modules/eslint-webpack-plugin/node_modules/jest-worker/build/index.js:110
+Sep 03 05:32:27 45466.vm npm[2171953]:   _ending;
+Sep 03 05:32:27 45466.vm npm[2171953]:          ^
+Sep 03 05:32:27 45466.vm npm[2171953]: SyntaxError: Unexpected token ;
+Sep 03 05:32:27 45466.vm npm[2171953]:     at Module._compile (internal/modules/cjs/loader.js:723:23)
+Sep 03 05:32:27 45466.vm npm[2171953]:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+Sep 03 05:32:27 45466.vm npm[2171953]:     at Module.load (internal/modules/cjs/loader.js:653:32)
+Sep 03 05:32:27 45466.vm npm[2171953]:     at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+Sep 03 05:32:27 45466.vm npm[2171953]:     at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+Sep 03 05:32:27 45466.vm npm[2171953]:     at Module.require (internal/modules/cjs/loader.js:692:17)
+Sep 03 05:32:27 45466.vm npm[2171953]:     at require (internal/modules/cjs/helpers.js:25:18)
+Sep 03 05:32:27 45466.vm npm[2171953]:     at Object.<anonymous> (/root/hexaco-frontend/node_modules/eslint-webpack-plugin/dist/getESLint.js:9:5)
+Sep 03 05:32:27 45466.vm npm[2171953]:     at Module._compile (internal/modules/cjs/loader.js:778:30)
+Sep 03 05:32:27 45466.vm npm[2171953]:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+Sep 03 05:32:27 45466.vm npm[2171901]: npm ERR! code ELIFECYCLE
+Sep 03 05:32:27 45466.vm npm[2171901]: npm ERR! errno 1
+Sep 03 05:32:27 45466.vm npm[2171901]: npm ERR! hexaco-frontend@0.1.0 start: `react-scripts start`
+Sep 03 05:32:27 45466.vm npm[2171901]: npm ERR! Exit status 1
+Sep 03 05:32:27 45466.vm npm[2171901]: npm ERR!
+Sep 03 05:32:27 45466.vm npm[2171901]: npm ERR! Failed at the hexaco-frontend@0.1.0 start script.
+Sep 03 05:32:27 45466.vm npm[2171901]: npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+Sep 03 05:32:27 45466.vm npm[2171901]: npm ERR! A complete log of this run can be found in:
+Sep 03 05:32:27 45466.vm npm[2171901]: npm ERR!     /root/.npm/_logs/2023-09-03T00_32_27_965Z-debug.log
+Sep 03 05:32:27 45466.vm systemd[1]: [0;1;39m[0;1;31m[0;1;39mhexaconpm.service: Main process exited, code=exited, status=1/FAILURE[0m
+Sep 03 05:32:27 45466.vm systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mhexaconpm.service: Failed with result 'exit-code'.[0m
+Sep 03 05:32:28 45466.vm systemd[1]: hexaconpm.service: Scheduled restart job, restart counter is at 5.
+Sep 03 05:32:28 45466.vm systemd[1]: Stopped HEXACO Node.js Application.
+Sep 03 05:32:28 45466.vm systemd[1]: Started HEXACO Node.js Application.
+Sep 03 05:32:29 45466.vm npm[2171976]: > hexaco-frontend@0.1.0 start /root/hexaco-frontend
+Sep 03 05:32:29 45466.vm npm[2171976]: > react-scripts start
+Sep 03 05:32:31 45466.vm npm[2172020]: /root/hexaco-frontend/node_modules/eslint-webpack-plugin/node_modules/jest-worker/build/index.js:110
+Sep 03 05:32:31 45466.vm npm[2172020]:   _ending;
+Sep 03 05:32:31 45466.vm npm[2172020]:          ^
+Sep 03 05:32:31 45466.vm npm[2172020]: SyntaxError: Unexpected token ;
+Sep 03 05:32:31 45466.vm npm[2172020]:     at Module._compile (internal/modules/cjs/loader.js:723:23)
+Sep 03 05:32:31 45466.vm npm[2172020]:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+Sep 03 05:32:31 45466.vm npm[2172020]:     at Module.load (internal/modules/cjs/loader.js:653:32)
+Sep 03 05:32:31 45466.vm npm[2172020]:     at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+Sep 03 05:32:31 45466.vm npm[2172020]:     at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+Sep 03 05:32:31 45466.vm npm[2172020]:     at Module.require (internal/modules/cjs/loader.js:692:17)
+Sep 03 05:32:31 45466.vm npm[2172020]:     at require (internal/modules/cjs/helpers.js:25:18)
+Sep 03 05:32:31 45466.vm npm[2172020]:     at Object.<anonymous> (/root/hexaco-frontend/node_modules/eslint-webpack-plugin/dist/getESLint.js:9:5)
+Sep 03 05:32:31 45466.vm npm[2172020]:     at Module._compile (internal/modules/cjs/loader.js:778:30)
+Sep 03 05:32:31 45466.vm npm[2172020]:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+Sep 03 05:32:31 45466.vm npm[2171976]: npm ERR! code ELIFECYCLE
+Sep 03 05:32:31 45466.vm npm[2171976]: npm ERR! errno 1
+Sep 03 05:32:31 45466.vm npm[2171976]: npm ERR! hexaco-frontend@0.1.0 start: `react-scripts start`
+Sep 03 05:32:31 45466.vm npm[2171976]: npm ERR! Exit status 1
+Sep 03 05:32:31 45466.vm npm[2171976]: npm ERR!
+Sep 03 05:32:31 45466.vm npm[2171976]: npm ERR! Failed at the hexaco-frontend@0.1.0 start script.
+Sep 03 05:32:31 45466.vm npm[2171976]: npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+Sep 03 05:32:31 45466.vm npm[2171976]: npm ERR! A complete log of this run can be found in:
+Sep 03 05:32:31 45466.vm npm[2171976]: npm ERR!     /root/.npm/_logs/2023-09-03T00_32_31_772Z-debug.log
+Sep 03 05:32:31 45466.vm systemd[1]: [0;1;39m[0;1;31m[0;1;39mhexaconpm.service: Main process exited, code=exited, status=1/FAILURE[0m
+Sep 03 05:32:31 45466.vm systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mhexaconpm.service: Failed with result 'exit-code'.[0m
+Sep 03 05:32:32 45466.vm systemd[1]: hexaconpm.service: Scheduled restart job, restart counter is at 6.
+Sep 03 05:32:32 45466.vm systemd[1]: Stopped HEXACO Node.js Application.
+Sep 03 05:32:32 45466.vm systemd[1]: Started HEXACO Node.js Application.
+Sep 03 05:32:33 45466.vm npm[2172042]: > hexaco-frontend@0.1.0 start /root/hexaco-frontend
+Sep 03 05:32:33 45466.vm npm[2172042]: > react-scripts start
+Sep 03 05:32:35 45466.vm npm[2172070]: /root/hexaco-frontend/node_modules/eslint-webpack-plugin/node_modules/jest-worker/build/index.js:110
+Sep 03 05:32:35 45466.vm npm[2172070]:   _ending;
+Sep 03 05:32:35 45466.vm npm[2172070]:          ^
+Sep 03 05:32:35 45466.vm npm[2172070]: SyntaxError: Unexpected token ;
+Sep 03 05:32:35 45466.vm npm[2172070]:     at Module._compile (internal/modules/cjs/loader.js:723:23)
+Sep 03 05:32:35 45466.vm npm[2172070]:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+Sep 03 05:32:35 45466.vm npm[2172070]:     at Module.load (internal/modules/cjs/loader.js:653:32)
+Sep 03 05:32:35 45466.vm npm[2172070]:     at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+Sep 03 05:32:35 45466.vm npm[2172070]:     at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+Sep 03 05:32:35 45466.vm npm[2172070]:     at Module.require (internal/modules/cjs/loader.js:692:17)
+Sep 03 05:32:35 45466.vm npm[2172070]:     at require (internal/modules/cjs/helpers.js:25:18)
+Sep 03 05:32:35 45466.vm npm[2172070]:     at Object.<anonymous> (/root/hexaco-frontend/node_modules/eslint-webpack-plugin/dist/getESLint.js:9:5)
+Sep 03 05:32:35 45466.vm npm[2172070]:     at Module._compile (internal/modules/cjs/loader.js:778:30)
+Sep 03 05:32:35 45466.vm npm[2172070]:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+Sep 03 05:32:35 45466.vm npm[2172042]: npm ERR! code ELIFECYCLE
+Sep 03 05:32:35 45466.vm npm[2172042]: npm ERR! errno 1
+Sep 03 05:32:35 45466.vm npm[2172042]: npm ERR! hexaco-frontend@0.1.0 start: `react-scripts start`
+Sep 03 05:32:35 45466.vm npm[2172042]: npm ERR! Exit status 1
+Sep 03 05:32:35 45466.vm npm[2172042]: npm ERR!
+Sep 03 05:32:35 45466.vm npm[2172042]: npm ERR! Failed at the hexaco-frontend@0.1.0 start script.
+Sep 03 05:32:35 45466.vm npm[2172042]: npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+Sep 03 05:32:35 45466.vm npm[2172042]: npm ERR! A complete log of this run can be found in:
+Sep 03 05:32:35 45466.vm npm[2172042]: npm ERR!     /root/.npm/_logs/2023-09-03T00_32_35_768Z-debug.log
+Sep 03 05:32:35 45466.vm systemd[1]: [0;1;39m[0;1;31m[0;1;39mhexaconpm.service: Main process exited, code=exited, status=1/FAILURE[0m
+Sep 03 05:32:35 45466.vm systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mhexaconpm.service: Failed with result 'exit-code'.[0m
+Sep 03 05:32:36 45466.vm systemd[1]: hexaconpm.service: Scheduled restart job, restart counter is at 7.
+Sep 03 05:32:36 45466.vm systemd[1]: Stopped HEXACO Node.js Application.
+Sep 03 05:32:36 45466.vm systemd[1]: Started HEXACO Node.js Application.
+Sep 03 05:32:37 45466.vm npm[2172078]: > hexaco-frontend@0.1.0 start /root/hexaco-frontend
+Sep 03 05:32:37 45466.vm npm[2172078]: > react-scripts start
+Sep 03 05:32:39 45466.vm npm[2172118]: /root/hexaco-frontend/node_modules/eslint-webpack-plugin/node_modules/jest-worker/build/index.js:110
+Sep 03 05:32:39 45466.vm npm[2172118]:   _ending;
+Sep 03 05:32:39 45466.vm npm[2172118]:          ^
+Sep 03 05:32:39 45466.vm npm[2172118]: SyntaxError: Unexpected token ;
+Sep 03 05:32:39 45466.vm npm[2172118]:     at Module._compile (internal/modules/cjs/loader.js:723:23)
+Sep 03 05:32:39 45466.vm npm[2172118]:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+Sep 03 05:32:39 45466.vm npm[2172118]:     at Module.load (internal/modules/cjs/loader.js:653:32)
+Sep 03 05:32:39 45466.vm npm[2172118]:     at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+Sep 03 05:32:39 45466.vm npm[2172118]:     at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+Sep 03 05:32:39 45466.vm npm[2172118]:     at Module.require (internal/modules/cjs/loader.js:692:17)
+Sep 03 05:32:39 45466.vm npm[2172118]:     at require (internal/modules/cjs/helpers.js:25:18)
+Sep 03 05:32:39 45466.vm npm[2172118]:     at Object.<anonymous> (/root/hexaco-frontend/node_modules/eslint-webpack-plugin/dist/getESLint.js:9:5)
+Sep 03 05:32:39 45466.vm npm[2172118]:     at Module._compile (internal/modules/cjs/loader.js:778:30)
+Sep 03 05:32:39 45466.vm npm[2172118]:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+Sep 03 05:32:39 45466.vm npm[2172078]: npm ERR! code ELIFECYCLE
+Sep 03 05:32:39 45466.vm npm[2172078]: npm ERR! errno 1
+Sep 03 05:32:39 45466.vm npm[2172078]: npm ERR! hexaco-frontend@0.1.0 start: `react-scripts start`
+Sep 03 05:32:39 45466.vm npm[2172078]: npm ERR! Exit status 1
+Sep 03 05:32:39 45466.vm npm[2172078]: npm ERR!
+Sep 03 05:32:39 45466.vm npm[2172078]: npm ERR! Failed at the hexaco-frontend@0.1.0 start script.
+Sep 03 05:32:39 45466.vm npm[2172078]: npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+Sep 03 05:32:39 45466.vm npm[2172078]: npm ERR! A complete log of this run can be found in:
+Sep 03 05:32:39 45466.vm npm[2172078]: npm ERR!     /root/.npm/_logs/2023-09-03T00_32_39_710Z-debug.log
+Sep 03 05:32:39 45466.vm systemd[1]: [0;1;39m[0;1;31m[0;1;39mhexaconpm.service: Main process exited, code=exited, status=1/FAILURE[0m
+Sep 03 05:32:39 45466.vm systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mhexaconpm.service: Failed with result 'exit-code'.[0m
+Sep 03 05:32:39 45466.vm systemd[1]: hexaconpm.service: Scheduled restart job, restart counter is at 8.
+Sep 03 05:32:39 45466.vm systemd[1]: Stopped HEXACO Node.js Application.
+Sep 03 05:32:39 45466.vm systemd[1]: Started HEXACO Node.js Application.
+Sep 03 05:32:40 45466.vm npm[2172125]: > hexaco-frontend@0.1.0 start /root/hexaco-frontend
+Sep 03 05:32:40 45466.vm npm[2172125]: > react-scripts start
+Sep 03 05:32:43 45466.vm npm[2172156]: /root/hexaco-frontend/node_modules/eslint-webpack-plugin/node_modules/jest-worker/build/index.js:110
+Sep 03 05:32:43 45466.vm npm[2172156]:   _ending;
+Sep 03 05:32:43 45466.vm npm[2172156]:          ^
+Sep 03 05:32:43 45466.vm npm[2172156]: SyntaxError: Unexpected token ;
+Sep 03 05:32:43 45466.vm npm[2172156]:     at Module._compile (internal/modules/cjs/loader.js:723:23)
+Sep 03 05:32:43 45466.vm npm[2172156]:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+Sep 03 05:32:43 45466.vm npm[2172156]:     at Module.load (internal/modules/cjs/loader.js:653:32)
+Sep 03 05:32:43 45466.vm npm[2172156]:     at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+Sep 03 05:32:43 45466.vm npm[2172156]:     at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+Sep 03 05:32:43 45466.vm npm[2172156]:     at Module.require (internal/modules/cjs/loader.js:692:17)
+Sep 03 05:32:43 45466.vm npm[2172156]:     at require (internal/modules/cjs/helpers.js:25:18)
+Sep 03 05:32:43 45466.vm npm[2172156]:     at Object.<anonymous> (/root/hexaco-frontend/node_modules/eslint-webpack-plugin/dist/getESLint.js:9:5)
+Sep 03 05:32:43 45466.vm npm[2172156]:     at Module._compile (internal/modules/cjs/loader.js:778:30)
+Sep 03 05:32:43 45466.vm npm[2172156]:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+Sep 03 05:32:43 45466.vm npm[2172125]: npm ERR! code ELIFECYCLE
+Sep 03 05:32:43 45466.vm npm[2172125]: npm ERR! errno 1
+Sep 03 05:32:43 45466.vm npm[2172125]: npm ERR! hexaco-frontend@0.1.0 start: `react-scripts start`
+Sep 03 05:32:43 45466.vm npm[2172125]: npm ERR! Exit status 1
+Sep 03 05:32:43 45466.vm npm[2172125]: npm ERR!
+Sep 03 05:32:43 45466.vm npm[2172125]: npm ERR! Failed at the hexaco-frontend@0.1.0 start script.
+Sep 03 05:32:43 45466.vm npm[2172125]: npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+Sep 03 05:32:43 45466.vm npm[2172125]: npm ERR! A complete log of this run can be found in:
+Sep 03 05:32:43 45466.vm npm[2172125]: npm ERR!     /root/.npm/_logs/2023-09-03T00_32_43_597Z-debug.log
+Sep 03 05:32:43 45466.vm systemd[1]: [0;1;39m[0;1;31m[0;1;39mhexaconpm.service: Main process exited, code=exited, status=1/FAILURE[0m
+Sep 03 05:32:43 45466.vm systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mhexaconpm.service: Failed with result 'exit-code'.[0m
+Sep 03 05:32:43 45466.vm systemd[1]: hexaconpm.service: Scheduled restart job, restart counter is at 9.
+Sep 03 05:32:43 45466.vm systemd[1]: Stopped HEXACO Node.js Application.
+Sep 03 05:32:43 45466.vm systemd[1]: Started HEXACO Node.js Application.
+Sep 03 05:32:44 45466.vm npm[2172173]: > hexaco-frontend@0.1.0 start /root/hexaco-frontend
+Sep 03 05:32:44 45466.vm npm[2172173]: > react-scripts start
+Sep 03 05:32:47 45466.vm npm[2172204]: /root/hexaco-frontend/node_modules/eslint-webpack-plugin/node_modules/jest-worker/build/index.js:110
+Sep 03 05:32:47 45466.vm npm[2172204]:   _ending;
+Sep 03 05:32:47 45466.vm npm[2172204]:          ^
+Sep 03 05:32:47 45466.vm npm[2172204]: SyntaxError: Unexpected token ;
+Sep 03 05:32:47 45466.vm npm[2172204]:     at Module._compile (internal/modules/cjs/loader.js:723:23)
+Sep 03 05:32:47 45466.vm npm[2172204]:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+Sep 03 05:32:47 45466.vm npm[2172204]:     at Module.load (internal/modules/cjs/loader.js:653:32)
+Sep 03 05:32:47 45466.vm npm[2172204]:     at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+Sep 03 05:32:47 45466.vm npm[2172204]:     at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+Sep 03 05:32:47 45466.vm npm[2172204]:     at Module.require (internal/modules/cjs/loader.js:692:17)
+Sep 03 05:32:47 45466.vm npm[2172204]:     at require (internal/modules/cjs/helpers.js:25:18)
+Sep 03 05:32:47 45466.vm npm[2172204]:     at Object.<anonymous> (/root/hexaco-frontend/node_modules/eslint-webpack-plugin/dist/getESLint.js:9:5)
+Sep 03 05:32:47 45466.vm npm[2172204]:     at Module._compile (internal/modules/cjs/loader.js:778:30)
+Sep 03 05:32:47 45466.vm npm[2172204]:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+Sep 03 05:32:47 45466.vm npm[2172173]: npm ERR! code ELIFECYCLE
+Sep 03 05:32:47 45466.vm npm[2172173]: npm ERR! errno 1
+Sep 03 05:32:47 45466.vm npm[2172173]: npm ERR! hexaco-frontend@0.1.0 start: `react-scripts start`
+Sep 03 05:32:47 45466.vm npm[2172173]: npm ERR! Exit status 1
+Sep 03 05:32:47 45466.vm npm[2172173]: npm ERR!
+Sep 03 05:32:47 45466.vm npm[2172173]: npm ERR! Failed at the hexaco-frontend@0.1.0 start script.
+Sep 03 05:32:47 45466.vm npm[2172173]: npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+Sep 03 05:32:47 45466.vm npm[2172173]: npm ERR! A complete log of this run can be found in:
+Sep 03 05:32:47 45466.vm npm[2172173]: npm ERR!     /root/.npm/_logs/2023-09-03T00_32_47_472Z-debug.log
+Sep 03 05:32:47 45466.vm systemd[1]: [0;1;39m[0;1;31m[0;1;39mhexaconpm.service: Main process exited, code=exited, status=1/FAILURE[0m
+Sep 03 05:32:47 45466.vm systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mhexaconpm.service: Failed with result 'exit-code'.[0m
+Sep 03 05:32:47 45466.vm systemd[1]: hexaconpm.service: Scheduled restart job, restart counter is at 10.
+Sep 03 05:32:47 45466.vm systemd[1]: Stopped HEXACO Node.js Application.
+Sep 03 05:32:47 45466.vm systemd[1]: Started HEXACO Node.js Application.
+Sep 03 05:32:48 45466.vm npm[2172241]: > hexaco-frontend@0.1.0 start /root/hexaco-frontend
+Sep 03 05:32:48 45466.vm npm[2172241]: > react-scripts start
+Sep 03 05:32:51 45466.vm npm[2172260]: /root/hexaco-frontend/node_modules/eslint-webpack-plugin/node_modules/jest-worker/build/index.js:110
+Sep 03 05:32:51 45466.vm npm[2172260]:   _ending;
+Sep 03 05:32:51 45466.vm npm[2172260]:          ^
+Sep 03 05:32:51 45466.vm npm[2172260]: SyntaxError: Unexpected token ;
+Sep 03 05:32:51 45466.vm npm[2172260]:     at Module._compile (internal/modules/cjs/loader.js:723:23)
+Sep 03 05:32:51 45466.vm npm[2172260]:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+Sep 03 05:32:51 45466.vm npm[2172260]:     at Module.load (internal/modules/cjs/loader.js:653:32)
+Sep 03 05:32:51 45466.vm npm[2172260]:     at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+Sep 03 05:32:51 45466.vm npm[2172260]:     at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+Sep 03 05:32:51 45466.vm npm[2172260]:     at Module.require (internal/modules/cjs/loader.js:692:17)
+Sep 03 05:32:51 45466.vm npm[2172260]:     at require (internal/modules/cjs/helpers.js:25:18)
+Sep 03 05:32:51 45466.vm npm[2172260]:     at Object.<anonymous> (/root/hexaco-frontend/node_modules/eslint-webpack-plugin/dist/getESLint.js:9:5)
+Sep 03 05:32:51 45466.vm npm[2172260]:     at Module._compile (internal/modules/cjs/loader.js:778:30)
+Sep 03 05:32:51 45466.vm npm[2172260]:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+Sep 03 05:32:51 45466.vm npm[2172241]: npm ERR! code ELIFECYCLE
+Sep 03 05:32:51 45466.vm npm[2172241]: npm ERR! errno 1
+Sep 03 05:32:51 45466.vm npm[2172241]: npm ERR! hexaco-frontend@0.1.0 start: `react-scripts start`
+Sep 03 05:32:51 45466.vm npm[2172241]: npm ERR! Exit status 1
+Sep 03 05:32:51 45466.vm npm[2172241]: npm ERR!
+Sep 03 05:32:51 45466.vm npm[2172241]: npm ERR! Failed at the hexaco-frontend@0.1.0 start script.
+Sep 03 05:32:51 45466.vm npm[2172241]: npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+Sep 03 05:32:51 45466.vm npm[2172241]: npm ERR! A complete log of this run can be found in:
+Sep 03 05:32:51 45466.vm npm[2172241]: npm ERR!     /root/.npm/_logs/2023-09-03T00_32_51_161Z-debug.log
+Sep 03 05:32:51 45466.vm systemd[1]: [0;1;39m[0;1;31m[0;1;39mhexaconpm.service: Main process exited, code=exited, status=1/FAILURE[0m
+Sep 03 05:32:51 45466.vm systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mhexaconpm.service: Failed with result 'exit-code'.[0m
+Sep 03 05:32:51 45466.vm systemd[1]: hexaconpm.service: Scheduled restart job, restart counter is at 11.
+Sep 03 05:32:51 45466.vm systemd[1]: Stopped HEXACO Node.js Application.
+Sep 03 05:32:51 45466.vm systemd[1]: Started HEXACO Node.js Application.
+Sep 03 05:32:52 45466.vm npm[2172267]: > hexaco-frontend@0.1.0 start /root/hexaco-frontend
+Sep 03 05:32:52 45466.vm npm[2172267]: > react-scripts start
+Sep 03 05:32:54 45466.vm npm[2172287]: /root/hexaco-frontend/node_modules/eslint-webpack-plugin/node_modules/jest-worker/build/index.js:110
+Sep 03 05:32:54 45466.vm npm[2172287]:   _ending;
+Sep 03 05:32:54 45466.vm npm[2172287]:          ^
+Sep 03 05:32:54 45466.vm npm[2172287]: SyntaxError: Unexpected token ;
+Sep 03 05:32:54 45466.vm npm[2172287]:     at Module._compile (internal/modules/cjs/loader.js:723:23)
+Sep 03 05:32:54 45466.vm npm[2172287]:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+Sep 03 05:32:54 45466.vm npm[2172287]:     at Module.load (internal/modules/cjs/loader.js:653:32)
+Sep 03 05:32:54 45466.vm npm[2172287]:     at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+Sep 03 05:32:54 45466.vm npm[2172287]:     at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+Sep 03 05:32:54 45466.vm npm[2172287]:     at Module.require (internal/modules/cjs/loader.js:692:17)
+Sep 03 05:32:54 45466.vm npm[2172287]:     at require (internal/modules/cjs/helpers.js:25:18)
+Sep 03 05:32:54 45466.vm npm[2172287]:     at Object.<anonymous> (/root/hexaco-frontend/node_modules/eslint-webpack-plugin/dist/getESLint.js:9:5)
+Sep 03 05:32:54 45466.vm npm[2172287]:     at Module._compile (internal/modules/cjs/loader.js:778:30)
+Sep 03 05:32:54 45466.vm npm[2172287]:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+Sep 03 05:32:54 45466.vm npm[2172267]: npm ERR! code ELIFECYCLE
+Sep 03 05:32:54 45466.vm npm[2172267]: npm ERR! errno 1
+Sep 03 05:32:54 45466.vm npm[2172267]: npm ERR! hexaco-frontend@0.1.0 start: `react-scripts start`
+Sep 03 05:32:54 45466.vm npm[2172267]: npm ERR! Exit status 1
+Sep 03 05:32:54 45466.vm npm[2172267]: npm ERR!
+Sep 03 05:32:54 45466.vm npm[2172267]: npm ERR! Failed at the hexaco-frontend@0.1.0 start script.
+Sep 03 05:32:54 45466.vm npm[2172267]: npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+Sep 03 05:32:54 45466.vm npm[2172267]: npm ERR! A complete log of this run can be found in:
+Sep 03 05:32:54 45466.vm npm[2172267]: npm ERR!     /root/.npm/_logs/2023-09-03T00_32_54_894Z-debug.log
+Sep 03 05:32:54 45466.vm systemd[1]: [0;1;39m[0;1;31m[0;1;39mhexaconpm.service: Main process exited, code=exited, status=1/FAILURE[0m
+Sep 03 05:32:54 45466.vm systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mhexaconpm.service: Failed with result 'exit-code'.[0m
+Sep 03 05:32:55 45466.vm systemd[1]: hexaconpm.service: Scheduled restart job, restart counter is at 12.
+Sep 03 05:32:55 45466.vm systemd[1]: Stopped HEXACO Node.js Application.
+Sep 03 05:32:55 45466.vm systemd[1]: Started HEXACO Node.js Application.
+Sep 03 05:32:56 45466.vm npm[2172294]: > hexaco-frontend@0.1.0 start /root/hexaco-frontend
+Sep 03 05:32:56 45466.vm npm[2172294]: > react-scripts start
+Sep 03 05:32:58 45466.vm npm[2172313]: /root/hexaco-frontend/node_modules/eslint-webpack-plugin/node_modules/jest-worker/build/index.js:110
+Sep 03 05:32:58 45466.vm npm[2172313]:   _ending;
+Sep 03 05:32:58 45466.vm npm[2172313]:          ^
+Sep 03 05:32:58 45466.vm npm[2172313]: SyntaxError: Unexpected token ;
+Sep 03 05:32:58 45466.vm npm[2172313]:     at Module._compile (internal/modules/cjs/loader.js:723:23)
+Sep 03 05:32:58 45466.vm npm[2172313]:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+Sep 03 05:32:58 45466.vm npm[2172313]:     at Module.load (internal/modules/cjs/loader.js:653:32)
+Sep 03 05:32:58 45466.vm npm[2172313]:     at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+Sep 03 05:32:58 45466.vm npm[2172313]:     at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+Sep 03 05:32:58 45466.vm npm[2172313]:     at Module.require (internal/modules/cjs/loader.js:692:17)
+Sep 03 05:32:58 45466.vm npm[2172313]:     at require (internal/modules/cjs/helpers.js:25:18)
+Sep 03 05:32:58 45466.vm npm[2172313]:     at Object.<anonymous> (/root/hexaco-frontend/node_modules/eslint-webpack-plugin/dist/getESLint.js:9:5)
+Sep 03 05:32:58 45466.vm npm[2172313]:     at Module._compile (internal/modules/cjs/loader.js:778:30)
+Sep 03 05:32:58 45466.vm npm[2172313]:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+Sep 03 05:32:58 45466.vm npm[2172294]: npm ERR! code ELIFECYCLE
+Sep 03 05:32:58 45466.vm npm[2172294]: npm ERR! errno 1
+Sep 03 05:32:58 45466.vm npm[2172294]: npm ERR! hexaco-frontend@0.1.0 start: `react-scripts start`
+Sep 03 05:32:58 45466.vm npm[2172294]: npm ERR! Exit status 1
+Sep 03 05:32:58 45466.vm npm[2172294]: npm ERR!
+Sep 03 05:32:58 45466.vm npm[2172294]: npm ERR! Failed at the hexaco-frontend@0.1.0 start script.
+Sep 03 05:32:58 45466.vm npm[2172294]: npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+Sep 03 05:32:58 45466.vm npm[2172294]: npm ERR! A complete log of this run can be found in:
+Sep 03 05:32:58 45466.vm npm[2172294]: npm ERR!     /root/.npm/_logs/2023-09-03T00_32_58_677Z-debug.log
+Sep 03 05:32:58 45466.vm systemd[1]: [0;1;39m[0;1;31m[0;1;39mhexaconpm.service: Main process exited, code=exited, status=1/FAILURE[0m
+Sep 03 05:32:58 45466.vm systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mhexaconpm.service: Failed with result 'exit-code'.[0m
+Sep 03 05:32:58 45466.vm systemd[1]: hexaconpm.service: Scheduled restart job, restart counter is at 13.
+Sep 03 05:32:58 45466.vm systemd[1]: Stopped HEXACO Node.js Application.
+Sep 03 05:32:58 45466.vm systemd[1]: Started HEXACO Node.js Application.
+Sep 03 05:32:59 45466.vm npm[2172321]: > hexaco-frontend@0.1.0 start /root/hexaco-frontend
+Sep 03 05:32:59 45466.vm npm[2172321]: > react-scripts start
+Sep 03 05:33:02 45466.vm npm[2172340]: /root/hexaco-frontend/node_modules/eslint-webpack-plugin/node_modules/jest-worker/build/index.js:110
+Sep 03 05:33:02 45466.vm npm[2172340]:   _ending;
+Sep 03 05:33:02 45466.vm npm[2172340]:          ^
+Sep 03 05:33:02 45466.vm npm[2172340]: SyntaxError: Unexpected token ;
+Sep 03 05:33:02 45466.vm npm[2172340]:     at Module._compile (internal/modules/cjs/loader.js:723:23)
+Sep 03 05:33:02 45466.vm npm[2172340]:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+Sep 03 05:33:02 45466.vm npm[2172340]:     at Module.load (internal/modules/cjs/loader.js:653:32)
+Sep 03 05:33:02 45466.vm npm[2172340]:     at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+Sep 03 05:33:02 45466.vm npm[2172340]:     at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+Sep 03 05:33:02 45466.vm npm[2172340]:     at Module.require (internal/modules/cjs/loader.js:692:17)
+Sep 03 05:33:02 45466.vm npm[2172340]:     at require (internal/modules/cjs/helpers.js:25:18)
+Sep 03 05:33:02 45466.vm npm[2172340]:     at Object.<anonymous> (/root/hexaco-frontend/node_modules/eslint-webpack-plugin/dist/getESLint.js:9:5)
+Sep 03 05:33:02 45466.vm npm[2172340]:     at Module._compile (internal/modules/cjs/loader.js:778:30)
+Sep 03 05:33:02 45466.vm npm[2172340]:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+Sep 03 05:33:02 45466.vm npm[2172321]: npm ERR! code ELIFECYCLE
+Sep 03 05:33:02 45466.vm npm[2172321]: npm ERR! errno 1
+Sep 03 05:33:02 45466.vm npm[2172321]: npm ERR! hexaco-frontend@0.1.0 start: `react-scripts start`
+Sep 03 05:33:02 45466.vm npm[2172321]: npm ERR! Exit status 1
+Sep 03 05:33:02 45466.vm npm[2172321]: npm ERR!
+Sep 03 05:33:02 45466.vm npm[2172321]: npm ERR! Failed at the hexaco-frontend@0.1.0 start script.
+Sep 03 05:33:02 45466.vm npm[2172321]: npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+Sep 03 05:33:02 45466.vm npm[2172321]: npm ERR! A complete log of this run can be found in:
+Sep 03 05:33:02 45466.vm npm[2172321]: npm ERR!     /root/.npm/_logs/2023-09-03T00_33_02_482Z-debug.log
+Sep 03 05:33:02 45466.vm systemd[1]: [0;1;39m[0;1;31m[0;1;39mhexaconpm.service: Main process exited, code=exited, status=1/FAILURE[0m
+Sep 03 05:33:02 45466.vm systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mhexaconpm.service: Failed with result 'exit-code'.[0m
+Sep 03 05:33:02 45466.vm systemd[1]: hexaconpm.service: Scheduled restart job, restart counter is at 14.
+Sep 03 05:33:02 45466.vm systemd[1]: Stopped HEXACO Node.js Application.
+Sep 03 05:33:02 45466.vm systemd[1]: Started HEXACO Node.js Application.
+Sep 03 05:33:03 45466.vm npm[2172350]: > hexaco-frontend@0.1.0 start /root/hexaco-frontend
+Sep 03 05:33:03 45466.vm npm[2172350]: > react-scripts start
+Sep 03 05:33:06 45466.vm npm[2172369]: /root/hexaco-frontend/node_modules/eslint-webpack-plugin/node_modules/jest-worker/build/index.js:110
+Sep 03 05:33:06 45466.vm npm[2172369]:   _ending;
+Sep 03 05:33:06 45466.vm npm[2172369]:          ^
+Sep 03 05:33:06 45466.vm npm[2172369]: SyntaxError: Unexpected token ;
+Sep 03 05:33:06 45466.vm npm[2172369]:     at Module._compile (internal/modules/cjs/loader.js:723:23)
+Sep 03 05:33:06 45466.vm npm[2172369]:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+Sep 03 05:33:06 45466.vm npm[2172369]:     at Module.load (internal/modules/cjs/loader.js:653:32)
+Sep 03 05:33:06 45466.vm npm[2172369]:     at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+Sep 03 05:33:06 45466.vm npm[2172369]:     at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+Sep 03 05:33:06 45466.vm npm[2172369]:     at Module.require (internal/modules/cjs/loader.js:692:17)
+Sep 03 05:33:06 45466.vm npm[2172369]:     at require (internal/modules/cjs/helpers.js:25:18)
+Sep 03 05:33:06 45466.vm npm[2172369]:     at Object.<anonymous> (/root/hexaco-frontend/node_modules/eslint-webpack-plugin/dist/getESLint.js:9:5)
+Sep 03 05:33:06 45466.vm npm[2172369]:     at Module._compile (internal/modules/cjs/loader.js:778:30)
+Sep 03 05:33:06 45466.vm npm[2172369]:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+Sep 03 05:33:06 45466.vm npm[2172350]: npm ERR! code ELIFECYCLE
+Sep 03 05:33:06 45466.vm npm[2172350]: npm ERR! errno 1
+Sep 03 05:33:06 45466.vm npm[2172350]: npm ERR! hexaco-frontend@0.1.0 start: `react-scripts start`
+Sep 03 05:33:06 45466.vm npm[2172350]: npm ERR! Exit status 1
+Sep 03 05:33:06 45466.vm npm[2172350]: npm ERR!
+Sep 03 05:33:06 45466.vm npm[2172350]: npm ERR! Failed at the hexaco-frontend@0.1.0 start script.
+Sep 03 05:33:06 45466.vm npm[2172350]: npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+Sep 03 05:33:06 45466.vm npm[2172350]: npm ERR! A complete log of this run can be found in:
+Sep 03 05:33:06 45466.vm npm[2172350]: npm ERR!     /root/.npm/_logs/2023-09-03T00_33_06_517Z-debug.log
+Sep 03 05:33:06 45466.vm systemd[1]: [0;1;39m[0;1;31m[0;1;39mhexaconpm.service: Main process exited, code=exited, status=1/FAILURE[0m
+Sep 03 05:33:06 45466.vm systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mhexaconpm.service: Failed with result 'exit-code'.[0m
+Sep 03 05:33:06 45466.vm systemd[1]: hexaconpm.service: Scheduled restart job, restart counter is at 15.
+Sep 03 05:33:06 45466.vm systemd[1]: Stopped HEXACO Node.js Application.
+Sep 03 05:33:06 45466.vm systemd[1]: Started HEXACO Node.js Application.
+Sep 03 05:33:07 45466.vm npm[2172376]: > hexaco-frontend@0.1.0 start /root/hexaco-frontend
+Sep 03 05:33:07 45466.vm npm[2172376]: > react-scripts start
+Sep 03 05:33:10 45466.vm npm[2172395]: /root/hexaco-frontend/node_modules/eslint-webpack-plugin/node_modules/jest-worker/build/index.js:110
+Sep 03 05:33:10 45466.vm npm[2172395]:   _ending;
+Sep 03 05:33:10 45466.vm npm[2172395]:          ^
+Sep 03 05:33:10 45466.vm npm[2172395]: SyntaxError: Unexpected token ;
+Sep 03 05:33:10 45466.vm npm[2172395]:     at Module._compile (internal/modules/cjs/loader.js:723:23)
+Sep 03 05:33:10 45466.vm npm[2172395]:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+Sep 03 05:33:10 45466.vm npm[2172395]:     at Module.load (internal/modules/cjs/loader.js:653:32)
+Sep 03 05:33:10 45466.vm npm[2172395]:     at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+Sep 03 05:33:10 45466.vm npm[2172395]:     at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+Sep 03 05:33:10 45466.vm npm[2172395]:     at Module.require (internal/modules/cjs/loader.js:692:17)
+Sep 03 05:33:10 45466.vm npm[2172395]:     at require (internal/modules/cjs/helpers.js:25:18)
+Sep 03 05:33:10 45466.vm npm[2172395]:     at Object.<anonymous> (/root/hexaco-frontend/node_modules/eslint-webpack-plugin/dist/getESLint.js:9:5)
+Sep 03 05:33:10 45466.vm npm[2172395]:     at Module._compile (internal/modules/cjs/loader.js:778:30)
+Sep 03 05:33:10 45466.vm npm[2172395]:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+Sep 03 05:33:10 45466.vm npm[2172376]: npm ERR! code ELIFECYCLE
+Sep 03 05:33:10 45466.vm npm[2172376]: npm ERR! errno 1
+Sep 03 05:33:10 45466.vm npm[2172376]: npm ERR! hexaco-frontend@0.1.0 start: `react-scripts start`
+Sep 03 05:33:10 45466.vm npm[2172376]: npm ERR! Exit status 1
+Sep 03 05:33:10 45466.vm npm[2172376]: npm ERR!
+Sep 03 05:33:10 45466.vm npm[2172376]: npm ERR! Failed at the hexaco-frontend@0.1.0 start script.
+Sep 03 05:33:10 45466.vm npm[2172376]: npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+Sep 03 05:33:10 45466.vm npm[2172376]: npm ERR! A complete log of this run can be found in:
+Sep 03 05:33:10 45466.vm npm[2172376]: npm ERR!     /root/.npm/_logs/2023-09-03T00_33_10_429Z-debug.log
+Sep 03 05:33:10 45466.vm systemd[1]: [0;1;39m[0;1;31m[0;1;39mhexaconpm.service: Main process exited, code=exited, status=1/FAILURE[0m
+Sep 03 05:33:10 45466.vm systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mhexaconpm.service: Failed with result 'exit-code'.[0m
+Sep 03 05:33:10 45466.vm systemd[1]: hexaconpm.service: Scheduled restart job, restart counter is at 16.
+Sep 03 05:33:10 45466.vm systemd[1]: Stopped HEXACO Node.js Application.
+Sep 03 05:33:10 45466.vm systemd[1]: Started HEXACO Node.js Application.
+Sep 03 05:33:11 45466.vm npm[2172402]: > hexaco-frontend@0.1.0 start /root/hexaco-frontend
+Sep 03 05:33:11 45466.vm npm[2172402]: > react-scripts start
+Sep 03 05:33:14 45466.vm npm[2172421]: /root/hexaco-frontend/node_modules/eslint-webpack-plugin/node_modules/jest-worker/build/index.js:110
+Sep 03 05:33:14 45466.vm npm[2172421]:   _ending;
+Sep 03 05:33:14 45466.vm npm[2172421]:          ^
+Sep 03 05:33:14 45466.vm npm[2172421]: SyntaxError: Unexpected token ;
+Sep 03 05:33:14 45466.vm npm[2172421]:     at Module._compile (internal/modules/cjs/loader.js:723:23)
+Sep 03 05:33:14 45466.vm npm[2172421]:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+Sep 03 05:33:14 45466.vm npm[2172421]:     at Module.load (internal/modules/cjs/loader.js:653:32)
+Sep 03 05:33:14 45466.vm npm[2172421]:     at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+Sep 03 05:33:14 45466.vm npm[2172421]:     at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+Sep 03 05:33:14 45466.vm npm[2172421]:     at Module.require (internal/modules/cjs/loader.js:692:17)
+Sep 03 05:33:14 45466.vm npm[2172421]:     at require (internal/modules/cjs/helpers.js:25:18)
+Sep 03 05:33:14 45466.vm npm[2172421]:     at Object.<anonymous> (/root/hexaco-frontend/node_modules/eslint-webpack-plugin/dist/getESLint.js:9:5)
+Sep 03 05:33:14 45466.vm npm[2172421]:     at Module._compile (internal/modules/cjs/loader.js:778:30)
+Sep 03 05:33:14 45466.vm npm[2172421]:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+Sep 03 05:33:14 45466.vm npm[2172402]: npm ERR! code ELIFECYCLE
+Sep 03 05:33:14 45466.vm npm[2172402]: npm ERR! errno 1
+Sep 03 05:33:14 45466.vm npm[2172402]: npm ERR! hexaco-frontend@0.1.0 start: `react-scripts start`
+Sep 03 05:33:14 45466.vm npm[2172402]: npm ERR! Exit status 1
+Sep 03 05:33:14 45466.vm npm[2172402]: npm ERR!
+Sep 03 05:33:14 45466.vm npm[2172402]: npm ERR! Failed at the hexaco-frontend@0.1.0 start script.
+Sep 03 05:33:14 45466.vm npm[2172402]: npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+Sep 03 05:33:14 45466.vm npm[2172402]: npm ERR! A complete log of this run can be found in:
+Sep 03 05:33:14 45466.vm npm[2172402]: npm ERR!     /root/.npm/_logs/2023-09-03T00_33_14_196Z-debug.log
+Sep 03 05:33:14 45466.vm systemd[1]: [0;1;39m[0;1;31m[0;1;39mhexaconpm.service: Main process exited, code=exited, status=1/FAILURE[0m
+Sep 03 05:33:14 45466.vm systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mhexaconpm.service: Failed with result 'exit-code'.[0m
+Sep 03 05:33:14 45466.vm systemd[1]: hexaconpm.service: Scheduled restart job, restart counter is at 17.
+Sep 03 05:33:14 45466.vm systemd[1]: Stopped HEXACO Node.js Application.
+Sep 03 05:33:14 45466.vm systemd[1]: Started HEXACO Node.js Application.
+Sep 03 05:33:15 45466.vm npm[2172429]: > hexaco-frontend@0.1.0 start /root/hexaco-frontend
+Sep 03 05:33:15 45466.vm npm[2172429]: > react-scripts start
+Sep 03 05:33:17 45466.vm npm[2172448]: /root/hexaco-frontend/node_modules/eslint-webpack-plugin/node_modules/jest-worker/build/index.js:110
+Sep 03 05:33:17 45466.vm npm[2172448]:   _ending;
+Sep 03 05:33:17 45466.vm npm[2172448]:          ^
+Sep 03 05:33:17 45466.vm npm[2172448]: SyntaxError: Unexpected token ;
+Sep 03 05:33:17 45466.vm npm[2172448]:     at Module._compile (internal/modules/cjs/loader.js:723:23)
+Sep 03 05:33:17 45466.vm npm[2172448]:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+Sep 03 05:33:17 45466.vm npm[2172448]:     at Module.load (internal/modules/cjs/loader.js:653:32)
+Sep 03 05:33:17 45466.vm npm[2172448]:     at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+Sep 03 05:33:17 45466.vm npm[2172448]:     at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+Sep 03 05:33:17 45466.vm npm[2172448]:     at Module.require (internal/modules/cjs/loader.js:692:17)
+Sep 03 05:33:17 45466.vm npm[2172448]:     at require (internal/modules/cjs/helpers.js:25:18)
+Sep 03 05:33:17 45466.vm npm[2172448]:     at Object.<anonymous> (/root/hexaco-frontend/node_modules/eslint-webpack-plugin/dist/getESLint.js:9:5)
+Sep 03 05:33:17 45466.vm npm[2172448]:     at Module._compile (internal/modules/cjs/loader.js:778:30)
+Sep 03 05:33:17 45466.vm npm[2172448]:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+Sep 03 05:33:17 45466.vm npm[2172429]: npm ERR! code ELIFECYCLE
+Sep 03 05:33:17 45466.vm npm[2172429]: npm ERR! errno 1
+Sep 03 05:33:17 45466.vm npm[2172429]: npm ERR! hexaco-frontend@0.1.0 start: `react-scripts start`
+Sep 03 05:33:17 45466.vm npm[2172429]: npm ERR! Exit status 1
+Sep 03 05:33:17 45466.vm npm[2172429]: npm ERR!
+Sep 03 05:33:17 45466.vm npm[2172429]: npm ERR! Failed at the hexaco-frontend@0.1.0 start script.
+Sep 03 05:33:17 45466.vm npm[2172429]: npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+Sep 03 05:33:17 45466.vm npm[2172429]: npm ERR! A complete log of this run can be found in:
+Sep 03 05:33:17 45466.vm npm[2172429]: npm ERR!     /root/.npm/_logs/2023-09-03T00_33_17_895Z-debug.log
+Sep 03 05:33:17 45466.vm systemd[1]: [0;1;39m[0;1;31m[0;1;39mhexaconpm.service: Main process exited, code=exited, status=1/FAILURE[0m
+Sep 03 05:33:17 45466.vm systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mhexaconpm.service: Failed with result 'exit-code'.[0m
+Sep 03 05:33:18 45466.vm systemd[1]: hexaconpm.service: Scheduled restart job, restart counter is at 18.
+Sep 03 05:33:18 45466.vm systemd[1]: Stopped HEXACO Node.js Application.
+Sep 03 05:33:18 45466.vm systemd[1]: Started HEXACO Node.js Application.
+Sep 03 05:33:18 45466.vm npm[2172455]: > hexaco-frontend@0.1.0 start /root/hexaco-frontend
+Sep 03 05:33:18 45466.vm npm[2172455]: > react-scripts start
+Sep 03 05:33:21 45466.vm npm[2172474]: /root/hexaco-frontend/node_modules/eslint-webpack-plugin/node_modules/jest-worker/build/index.js:110
+Sep 03 05:33:21 45466.vm npm[2172474]:   _ending;
+Sep 03 05:33:21 45466.vm npm[2172474]:          ^
+Sep 03 05:33:21 45466.vm npm[2172474]: SyntaxError: Unexpected token ;
+Sep 03 05:33:21 45466.vm npm[2172474]:     at Module._compile (internal/modules/cjs/loader.js:723:23)
+Sep 03 05:33:21 45466.vm npm[2172474]:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+Sep 03 05:33:21 45466.vm npm[2172474]:     at Module.load (internal/modules/cjs/loader.js:653:32)
+Sep 03 05:33:21 45466.vm npm[2172474]:     at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+Sep 03 05:33:21 45466.vm npm[2172474]:     at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+Sep 03 05:33:21 45466.vm npm[2172474]:     at Module.require (internal/modules/cjs/loader.js:692:17)
+Sep 03 05:33:21 45466.vm npm[2172474]:     at require (internal/modules/cjs/helpers.js:25:18)
+Sep 03 05:33:21 45466.vm npm[2172474]:     at Object.<anonymous> (/root/hexaco-frontend/node_modules/eslint-webpack-plugin/dist/getESLint.js:9:5)
+Sep 03 05:33:21 45466.vm npm[2172474]:     at Module._compile (internal/modules/cjs/loader.js:778:30)
+Sep 03 05:33:21 45466.vm npm[2172474]:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+Sep 03 05:33:21 45466.vm npm[2172455]: npm ERR! code ELIFECYCLE
+Sep 03 05:33:21 45466.vm npm[2172455]: npm ERR! errno 1
+Sep 03 05:33:21 45466.vm npm[2172455]: npm ERR! hexaco-frontend@0.1.0 start: `react-scripts start`
+Sep 03 05:33:21 45466.vm npm[2172455]: npm ERR! Exit status 1
+Sep 03 05:33:21 45466.vm npm[2172455]: npm ERR!
+Sep 03 05:33:21 45466.vm npm[2172455]: npm ERR! Failed at the hexaco-frontend@0.1.0 start script.
+Sep 03 05:33:21 45466.vm npm[2172455]: npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+Sep 03 05:33:21 45466.vm npm[2172455]: npm ERR! A complete log of this run can be found in:
+Sep 03 05:33:21 45466.vm npm[2172455]: npm ERR!     /root/.npm/_logs/2023-09-03T00_33_21_596Z-debug.log
+Sep 03 05:33:21 45466.vm systemd[1]: [0;1;39m[0;1;31m[0;1;39mhexaconpm.service: Main process exited, code=exited, status=1/FAILURE[0m
+Sep 03 05:33:21 45466.vm systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mhexaconpm.service: Failed with result 'exit-code'.[0m
+Sep 03 05:33:21 45466.vm systemd[1]: hexaconpm.service: Scheduled restart job, restart counter is at 19.
+Sep 03 05:33:21 45466.vm systemd[1]: Stopped HEXACO Node.js Application.
+Sep 03 05:33:21 45466.vm systemd[1]: Started HEXACO Node.js Application.
+Sep 03 05:33:22 45466.vm npm[2172481]: > hexaco-frontend@0.1.0 start /root/hexaco-frontend
+Sep 03 05:33:22 45466.vm npm[2172481]: > react-scripts start
+Sep 03 05:33:25 45466.vm npm[2172500]: /root/hexaco-frontend/node_modules/eslint-webpack-plugin/node_modules/jest-worker/build/index.js:110
+Sep 03 05:33:25 45466.vm npm[2172500]:   _ending;
+Sep 03 05:33:25 45466.vm npm[2172500]:          ^
+Sep 03 05:33:25 45466.vm npm[2172500]: SyntaxError: Unexpected token ;
+Sep 03 05:33:25 45466.vm npm[2172500]:     at Module._compile (internal/modules/cjs/loader.js:723:23)
+Sep 03 05:33:25 45466.vm npm[2172500]:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+Sep 03 05:33:25 45466.vm npm[2172500]:     at Module.load (internal/modules/cjs/loader.js:653:32)
+Sep 03 05:33:25 45466.vm npm[2172500]:     at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+Sep 03 05:33:25 45466.vm npm[2172500]:     at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+Sep 03 05:33:25 45466.vm npm[2172500]:     at Module.require (internal/modules/cjs/loader.js:692:17)
+Sep 03 05:33:25 45466.vm npm[2172500]:     at require (internal/modules/cjs/helpers.js:25:18)
+Sep 03 05:33:25 45466.vm npm[2172500]:     at Object.<anonymous> (/root/hexaco-frontend/node_modules/eslint-webpack-plugin/dist/getESLint.js:9:5)
+Sep 03 05:33:25 45466.vm npm[2172500]:     at Module._compile (internal/modules/cjs/loader.js:778:30)
+Sep 03 05:33:25 45466.vm npm[2172500]:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+Sep 03 05:33:25 45466.vm npm[2172481]: npm ERR! code ELIFECYCLE
+Sep 03 05:33:25 45466.vm npm[2172481]: npm ERR! errno 1
+Sep 03 05:33:25 45466.vm npm[2172481]: npm ERR! hexaco-frontend@0.1.0 start: `react-scripts start`
+Sep 03 05:33:25 45466.vm npm[2172481]: npm ERR! Exit status 1
+Sep 03 05:33:25 45466.vm npm[2172481]: npm ERR!
+Sep 03 05:33:25 45466.vm npm[2172481]: npm ERR! Failed at the hexaco-frontend@0.1.0 start script.
+Sep 03 05:33:25 45466.vm npm[2172481]: npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+Sep 03 05:33:25 45466.vm npm[2172481]: npm ERR! A complete log of this run can be found in:
+Sep 03 05:33:25 45466.vm npm[2172481]: npm ERR!     /root/.npm/_logs/2023-09-03T00_33_25_477Z-debug.log
+Sep 03 05:33:25 45466.vm systemd[1]: [0;1;39m[0;1;31m[0;1;39mhexaconpm.service: Main process exited, code=exited, status=1/FAILURE[0m
+Sep 03 05:33:25 45466.vm systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mhexaconpm.service: Failed with result 'exit-code'.[0m
+Sep 03 05:33:25 45466.vm systemd[1]: hexaconpm.service: Scheduled restart job, restart counter is at 20.
+Sep 03 05:33:25 45466.vm systemd[1]: Stopped HEXACO Node.js Application.
+Sep 03 05:33:25 45466.vm systemd[1]: Started HEXACO Node.js Application.
+Sep 03 05:33:26 45466.vm npm[2172507]: > hexaco-frontend@0.1.0 start /root/hexaco-frontend
+Sep 03 05:33:26 45466.vm npm[2172507]: > react-scripts start
+Sep 03 05:33:29 45466.vm npm[2172526]: /root/hexaco-frontend/node_modules/eslint-webpack-plugin/node_modules/jest-worker/build/index.js:110
+Sep 03 05:33:29 45466.vm npm[2172526]:   _ending;
+Sep 03 05:33:29 45466.vm npm[2172526]:          ^
+Sep 03 05:33:29 45466.vm npm[2172526]: SyntaxError: Unexpected token ;
+Sep 03 05:33:29 45466.vm npm[2172526]:     at Module._compile (internal/modules/cjs/loader.js:723:23)
+Sep 03 05:33:29 45466.vm npm[2172526]:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+Sep 03 05:33:29 45466.vm npm[2172526]:     at Module.load (internal/modules/cjs/loader.js:653:32)
+Sep 03 05:33:29 45466.vm npm[2172526]:     at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+Sep 03 05:33:29 45466.vm npm[2172526]:     at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+Sep 03 05:33:29 45466.vm npm[2172526]:     at Module.require (internal/modules/cjs/loader.js:692:17)
+Sep 03 05:33:29 45466.vm npm[2172526]:     at require (internal/modules/cjs/helpers.js:25:18)
+Sep 03 05:33:29 45466.vm npm[2172526]:     at Object.<anonymous> (/root/hexaco-frontend/node_modules/eslint-webpack-plugin/dist/getESLint.js:9:5)
+Sep 03 05:33:29 45466.vm npm[2172526]:     at Module._compile (internal/modules/cjs/loader.js:778:30)
+Sep 03 05:33:29 45466.vm npm[2172526]:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+Sep 03 05:33:29 45466.vm npm[2172507]: npm ERR! code ELIFECYCLE
+Sep 03 05:33:29 45466.vm npm[2172507]: npm ERR! errno 1
+Sep 03 05:33:29 45466.vm npm[2172507]: npm ERR! hexaco-frontend@0.1.0 start: `react-scripts start`
+Sep 03 05:33:29 45466.vm npm[2172507]: npm ERR! Exit status 1
+Sep 03 05:33:29 45466.vm npm[2172507]: npm ERR!
+Sep 03 05:33:29 45466.vm npm[2172507]: npm ERR! Failed at the hexaco-frontend@0.1.0 start script.
+Sep 03 05:33:29 45466.vm npm[2172507]: npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+Sep 03 05:33:29 45466.vm npm[2172507]: npm ERR! A complete log of this run can be found in:
+Sep 03 05:33:29 45466.vm npm[2172507]: npm ERR!     /root/.npm/_logs/2023-09-03T00_33_29_292Z-debug.log
+Sep 03 05:33:29 45466.vm systemd[1]: [0;1;39m[0;1;31m[0;1;39mhexaconpm.service: Main process exited, code=exited, status=1/FAILURE[0m
+Sep 03 05:33:29 45466.vm systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mhexaconpm.service: Failed with result 'exit-code'.[0m
+Sep 03 05:33:29 45466.vm systemd[1]: hexaconpm.service: Scheduled restart job, restart counter is at 21.
+Sep 03 05:33:29 45466.vm systemd[1]: Stopped HEXACO Node.js Application.
+Sep 03 05:33:29 45466.vm systemd[1]: Started HEXACO Node.js Application.
+Sep 03 05:33:30 45466.vm npm[2172534]: > hexaco-frontend@0.1.0 start /root/hexaco-frontend
+Sep 03 05:33:30 45466.vm npm[2172534]: > react-scripts start
+Sep 03 05:33:33 45466.vm npm[2172553]: /root/hexaco-frontend/node_modules/eslint-webpack-plugin/node_modules/jest-worker/build/index.js:110
+Sep 03 05:33:33 45466.vm npm[2172553]:   _ending;
+Sep 03 05:33:33 45466.vm npm[2172553]:          ^
+Sep 03 05:33:33 45466.vm npm[2172553]: SyntaxError: Unexpected token ;
+Sep 03 05:33:33 45466.vm npm[2172553]:     at Module._compile (internal/modules/cjs/loader.js:723:23)
+Sep 03 05:33:33 45466.vm npm[2172553]:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+Sep 03 05:33:33 45466.vm npm[2172553]:     at Module.load (internal/modules/cjs/loader.js:653:32)
+Sep 03 05:33:33 45466.vm npm[2172553]:     at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+Sep 03 05:33:33 45466.vm npm[2172553]:     at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+Sep 03 05:33:33 45466.vm npm[2172553]:     at Module.require (internal/modules/cjs/loader.js:692:17)
+Sep 03 05:33:33 45466.vm npm[2172553]:     at require (internal/modules/cjs/helpers.js:25:18)
+Sep 03 05:33:33 45466.vm npm[2172553]:     at Object.<anonymous> (/root/hexaco-frontend/node_modules/eslint-webpack-plugin/dist/getESLint.js:9:5)
+Sep 03 05:33:33 45466.vm npm[2172553]:     at Module._compile (internal/modules/cjs/loader.js:778:30)
+Sep 03 05:33:33 45466.vm npm[2172553]:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+Sep 03 05:33:33 45466.vm npm[2172534]: npm ERR! code ELIFECYCLE
+Sep 03 05:33:33 45466.vm npm[2172534]: npm ERR! errno 1
+Sep 03 05:33:33 45466.vm npm[2172534]: npm ERR! hexaco-frontend@0.1.0 start: `react-scripts start`
+Sep 03 05:33:33 45466.vm npm[2172534]: npm ERR! Exit status 1
+Sep 03 05:33:33 45466.vm npm[2172534]: npm ERR!
+Sep 03 05:33:33 45466.vm npm[2172534]: npm ERR! Failed at the hexaco-frontend@0.1.0 start script.
+Sep 03 05:33:33 45466.vm npm[2172534]: npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+Sep 03 05:33:33 45466.vm npm[2172534]: npm ERR! A complete log of this run can be found in:
+Sep 03 05:33:33 45466.vm npm[2172534]: npm ERR!     /root/.npm/_logs/2023-09-03T00_33_33_101Z-debug.log
+Sep 03 05:33:33 45466.vm systemd[1]: [0;1;39m[0;1;31m[0;1;39mhexaconpm.service: Main process exited, code=exited, status=1/FAILURE[0m
+Sep 03 05:33:33 45466.vm systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mhexaconpm.service: Failed with result 'exit-code'.[0m
+Sep 03 05:33:33 45466.vm systemd[1]: hexaconpm.service: Scheduled restart job, restart counter is at 22.
+Sep 03 05:33:33 45466.vm systemd[1]: Stopped HEXACO Node.js Application.
+Sep 03 05:33:33 45466.vm systemd[1]: Started HEXACO Node.js Application.
+Sep 03 05:33:34 45466.vm npm[2172560]: > hexaco-frontend@0.1.0 start /root/hexaco-frontend
+Sep 03 05:33:34 45466.vm npm[2172560]: > react-scripts start
+Sep 03 05:33:36 45466.vm npm[2172579]: /root/hexaco-frontend/node_modules/eslint-webpack-plugin/node_modules/jest-worker/build/index.js:110
+Sep 03 05:33:36 45466.vm npm[2172579]:   _ending;
+Sep 03 05:33:36 45466.vm npm[2172579]:          ^
+Sep 03 05:33:36 45466.vm npm[2172579]: SyntaxError: Unexpected token ;
+Sep 03 05:33:36 45466.vm npm[2172579]:     at Module._compile (internal/modules/cjs/loader.js:723:23)
+Sep 03 05:33:36 45466.vm npm[2172579]:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+Sep 03 05:33:36 45466.vm npm[2172579]:     at Module.load (internal/modules/cjs/loader.js:653:32)
+Sep 03 05:33:36 45466.vm npm[2172579]:     at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+Sep 03 05:33:36 45466.vm npm[2172579]:     at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+Sep 03 05:33:36 45466.vm npm[2172579]:     at Module.require (internal/modules/cjs/loader.js:692:17)
+Sep 03 05:33:36 45466.vm npm[2172579]:     at require (internal/modules/cjs/helpers.js:25:18)
+Sep 03 05:33:36 45466.vm npm[2172579]:     at Object.<anonymous> (/root/hexaco-frontend/node_modules/eslint-webpack-plugin/dist/getESLint.js:9:5)
+Sep 03 05:33:36 45466.vm npm[2172579]:     at Module._compile (internal/modules/cjs/loader.js:778:30)
+Sep 03 05:33:36 45466.vm npm[2172579]:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+Sep 03 05:33:36 45466.vm npm[2172560]: npm ERR! code ELIFECYCLE
+Sep 03 05:33:36 45466.vm npm[2172560]: npm ERR! errno 1
+Sep 03 05:33:36 45466.vm npm[2172560]: npm ERR! hexaco-frontend@0.1.0 start: `react-scripts start`
+Sep 03 05:33:36 45466.vm npm[2172560]: npm ERR! Exit status 1
+Sep 03 05:33:36 45466.vm npm[2172560]: npm ERR!
+Sep 03 05:33:36 45466.vm npm[2172560]: npm ERR! Failed at the hexaco-frontend@0.1.0 start script.
+Sep 03 05:33:36 45466.vm npm[2172560]: npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+Sep 03 05:33:37 45466.vm npm[2172560]: npm ERR! A complete log of this run can be found in:
+Sep 03 05:33:37 45466.vm npm[2172560]: npm ERR!     /root/.npm/_logs/2023-09-03T00_33_36_999Z-debug.log
+Sep 03 05:33:37 45466.vm systemd[1]: [0;1;39m[0;1;31m[0;1;39mhexaconpm.service: Main process exited, code=exited, status=1/FAILURE[0m
+Sep 03 05:33:37 45466.vm systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mhexaconpm.service: Failed with result 'exit-code'.[0m
+Sep 03 05:33:37 45466.vm systemd[1]: hexaconpm.service: Scheduled restart job, restart counter is at 23.
+Sep 03 05:33:37 45466.vm systemd[1]: Stopped HEXACO Node.js Application.
+Sep 03 05:33:37 45466.vm systemd[1]: Started HEXACO Node.js Application.
+Sep 03 05:33:38 45466.vm npm[2172586]: > hexaco-frontend@0.1.0 start /root/hexaco-frontend
+Sep 03 05:33:38 45466.vm npm[2172586]: > react-scripts start
+Sep 03 05:33:40 45466.vm npm[2172605]: /root/hexaco-frontend/node_modules/eslint-webpack-plugin/node_modules/jest-worker/build/index.js:110
+Sep 03 05:33:40 45466.vm npm[2172605]:   _ending;
+Sep 03 05:33:40 45466.vm npm[2172605]:          ^
+Sep 03 05:33:40 45466.vm npm[2172605]: SyntaxError: Unexpected token ;
+Sep 03 05:33:40 45466.vm npm[2172605]:     at Module._compile (internal/modules/cjs/loader.js:723:23)
+Sep 03 05:33:40 45466.vm npm[2172605]:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+Sep 03 05:33:40 45466.vm npm[2172605]:     at Module.load (internal/modules/cjs/loader.js:653:32)
+Sep 03 05:33:40 45466.vm npm[2172605]:     at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+Sep 03 05:33:40 45466.vm npm[2172605]:     at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+Sep 03 05:33:40 45466.vm npm[2172605]:     at Module.require (internal/modules/cjs/loader.js:692:17)
+Sep 03 05:33:40 45466.vm npm[2172605]:     at require (internal/modules/cjs/helpers.js:25:18)
+Sep 03 05:33:40 45466.vm npm[2172605]:     at Object.<anonymous> (/root/hexaco-frontend/node_modules/eslint-webpack-plugin/dist/getESLint.js:9:5)
+Sep 03 05:33:40 45466.vm npm[2172605]:     at Module._compile (internal/modules/cjs/loader.js:778:30)
+Sep 03 05:33:40 45466.vm npm[2172605]:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+Sep 03 05:33:40 45466.vm npm[2172586]: npm ERR! code ELIFECYCLE
+Sep 03 05:33:40 45466.vm npm[2172586]: npm ERR! errno 1
+Sep 03 05:33:40 45466.vm npm[2172586]: npm ERR! hexaco-frontend@0.1.0 start: `react-scripts start`
+Sep 03 05:33:40 45466.vm npm[2172586]: npm ERR! Exit status 1
+Sep 03 05:33:40 45466.vm npm[2172586]: npm ERR!
+Sep 03 05:33:40 45466.vm npm[2172586]: npm ERR! Failed at the hexaco-frontend@0.1.0 start script.
+Sep 03 05:33:40 45466.vm npm[2172586]: npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+Sep 03 05:33:40 45466.vm npm[2172586]: npm ERR! A complete log of this run can be found in:
+Sep 03 05:33:40 45466.vm npm[2172586]: npm ERR!     /root/.npm/_logs/2023-09-03T00_33_40_986Z-debug.log
+Sep 03 05:33:41 45466.vm systemd[1]: [0;1;39m[0;1;31m[0;1;39mhexaconpm.service: Main process exited, code=exited, status=1/FAILURE[0m
+Sep 03 05:33:41 45466.vm systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mhexaconpm.service: Failed with result 'exit-code'.[0m
+Sep 03 05:33:41 45466.vm systemd[1]: hexaconpm.service: Scheduled restart job, restart counter is at 24.
+Sep 03 05:33:41 45466.vm systemd[1]: Stopped HEXACO Node.js Application.
+Sep 03 05:33:41 45466.vm systemd[1]: Started HEXACO Node.js Application.
+Sep 03 05:33:42 45466.vm npm[2172612]: > hexaco-frontend@0.1.0 start /root/hexaco-frontend
+Sep 03 05:33:42 45466.vm npm[2172612]: > react-scripts start
+Sep 03 05:33:44 45466.vm npm[2172644]: /root/hexaco-frontend/node_modules/eslint-webpack-plugin/node_modules/jest-worker/build/index.js:110
+Sep 03 05:33:44 45466.vm npm[2172644]:   _ending;
+Sep 03 05:33:44 45466.vm npm[2172644]:          ^
+Sep 03 05:33:44 45466.vm npm[2172644]: SyntaxError: Unexpected token ;
+Sep 03 05:33:44 45466.vm npm[2172644]:     at Module._compile (internal/modules/cjs/loader.js:723:23)
+Sep 03 05:33:44 45466.vm npm[2172644]:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+Sep 03 05:33:44 45466.vm npm[2172644]:     at Module.load (internal/modules/cjs/loader.js:653:32)
+Sep 03 05:33:44 45466.vm npm[2172644]:     at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+Sep 03 05:33:44 45466.vm npm[2172644]:     at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+Sep 03 05:33:44 45466.vm npm[2172644]:     at Module.require (internal/modules/cjs/loader.js:692:17)
+Sep 03 05:33:44 45466.vm npm[2172644]:     at require (internal/modules/cjs/helpers.js:25:18)
+Sep 03 05:33:44 45466.vm npm[2172644]:     at Object.<anonymous> (/root/hexaco-frontend/node_modules/eslint-webpack-plugin/dist/getESLint.js:9:5)
+Sep 03 05:33:44 45466.vm npm[2172644]:     at Module._compile (internal/modules/cjs/loader.js:778:30)
+Sep 03 05:33:44 45466.vm npm[2172644]:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+Sep 03 05:33:44 45466.vm npm[2172612]: npm ERR! code ELIFECYCLE
+Sep 03 05:33:44 45466.vm npm[2172612]: npm ERR! errno 1
+Sep 03 05:33:44 45466.vm npm[2172612]: npm ERR! hexaco-frontend@0.1.0 start: `react-scripts start`
+Sep 03 05:33:44 45466.vm npm[2172612]: npm ERR! Exit status 1
+Sep 03 05:33:44 45466.vm npm[2172612]: npm ERR!
+Sep 03 05:33:44 45466.vm npm[2172612]: npm ERR! Failed at the hexaco-frontend@0.1.0 start script.
+Sep 03 05:33:44 45466.vm npm[2172612]: npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+Sep 03 05:33:44 45466.vm npm[2172612]: npm ERR! A complete log of this run can be found in:
+Sep 03 05:33:44 45466.vm npm[2172612]: npm ERR!     /root/.npm/_logs/2023-09-03T00_33_44_835Z-debug.log
+Sep 03 05:33:44 45466.vm systemd[1]: [0;1;39m[0;1;31m[0;1;39mhexaconpm.service: Main process exited, code=exited, status=1/FAILURE[0m
+Sep 03 05:33:44 45466.vm systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mhexaconpm.service: Failed with result 'exit-code'.[0m
+Sep 03 05:33:45 45466.vm systemd[1]: hexaconpm.service: Scheduled restart job, restart counter is at 25.
+Sep 03 05:33:45 45466.vm systemd[1]: Stopped HEXACO Node.js Application.
+Sep 03 05:33:45 45466.vm systemd[1]: Started HEXACO Node.js Application.
+Sep 03 05:33:46 45466.vm npm[2172660]: > hexaco-frontend@0.1.0 start /root/hexaco-frontend
+Sep 03 05:33:46 45466.vm npm[2172660]: > react-scripts start
+Sep 03 05:33:48 45466.vm npm[2172679]: /root/hexaco-frontend/node_modules/eslint-webpack-plugin/node_modules/jest-worker/build/index.js:110
+Sep 03 05:33:48 45466.vm npm[2172679]:   _ending;
+Sep 03 05:33:48 45466.vm npm[2172679]:          ^
+Sep 03 05:33:48 45466.vm npm[2172679]: SyntaxError: Unexpected token ;
+Sep 03 05:33:48 45466.vm npm[2172679]:     at Module._compile (internal/modules/cjs/loader.js:723:23)
+Sep 03 05:33:48 45466.vm npm[2172679]:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+Sep 03 05:33:48 45466.vm npm[2172679]:     at Module.load (internal/modules/cjs/loader.js:653:32)
+Sep 03 05:33:48 45466.vm npm[2172679]:     at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+Sep 03 05:33:48 45466.vm npm[2172679]:     at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+Sep 03 05:33:48 45466.vm npm[2172679]:     at Module.require (internal/modules/cjs/loader.js:692:17)
+Sep 03 05:33:48 45466.vm npm[2172679]:     at require (internal/modules/cjs/helpers.js:25:18)
+Sep 03 05:33:48 45466.vm npm[2172679]:     at Object.<anonymous> (/root/hexaco-frontend/node_modules/eslint-webpack-plugin/dist/getESLint.js:9:5)
+Sep 03 05:33:48 45466.vm npm[2172679]:     at Module._compile (internal/modules/cjs/loader.js:778:30)
+Sep 03 05:33:48 45466.vm npm[2172679]:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+Sep 03 05:33:48 45466.vm npm[2172660]: npm ERR! code ELIFECYCLE
+Sep 03 05:33:48 45466.vm npm[2172660]: npm ERR! errno 1
+Sep 03 05:33:48 45466.vm npm[2172660]: npm ERR! hexaco-frontend@0.1.0 start: `react-scripts start`
+Sep 03 05:33:48 45466.vm npm[2172660]: npm ERR! Exit status 1
+Sep 03 05:33:48 45466.vm npm[2172660]: npm ERR!
+Sep 03 05:33:48 45466.vm npm[2172660]: npm ERR! Failed at the hexaco-frontend@0.1.0 start script.
+Sep 03 05:33:48 45466.vm npm[2172660]: npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+Sep 03 05:33:48 45466.vm npm[2172660]: npm ERR! A complete log of this run can be found in:
+Sep 03 05:33:48 45466.vm npm[2172660]: npm ERR!     /root/.npm/_logs/2023-09-03T00_33_48_697Z-debug.log
+Sep 03 05:33:48 45466.vm systemd[1]: [0;1;39m[0;1;31m[0;1;39mhexaconpm.service: Main process exited, code=exited, status=1/FAILURE[0m
+Sep 03 05:33:48 45466.vm systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mhexaconpm.service: Failed with result 'exit-code'.[0m
+Sep 03 05:33:48 45466.vm systemd[1]: hexaconpm.service: Scheduled restart job, restart counter is at 26.
+Sep 03 05:33:48 45466.vm systemd[1]: Stopped HEXACO Node.js Application.
+Sep 03 05:33:48 45466.vm systemd[1]: Started HEXACO Node.js Application.
+Sep 03 05:33:49 45466.vm npm[2172698]: > hexaco-frontend@0.1.0 start /root/hexaco-frontend
+Sep 03 05:33

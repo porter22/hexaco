@@ -1,0 +1,15 @@
+# .gitignore
+
+# Ignore node modules
+hexaco-frontend/node_modules/
+
+# Ignore Python virtual environment
+hexaco-backend/venv/
+
+hexaco-backend/config.py
+
+hexaco-backend/migrations/config.py
+
+hexaco-backend/hrgpt-381021-dc639aab9df3.json
+
+.env
