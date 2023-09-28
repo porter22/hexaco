@@ -6,7 +6,10 @@ require('dotenv').config();
 
 module.exports = {
   mode: 'development',
-  entry: './src/index.js',
+  entry: [
+    './src/assets/styles/app.scss',
+    './src/index.js'
+  ],
   resolve: {
     extensions: ['.js'],
     alias: {

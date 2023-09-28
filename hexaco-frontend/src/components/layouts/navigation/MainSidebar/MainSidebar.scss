@@ -1,0 +1,112 @@
+#sidebar__mn{
+    height: calc(100vh - 40px);
+    display: inline-block;
+    // z-index: 100;
+    margin-right: 78px;
+
+    
+}
+.sidebar{
+    &__mn{
+        position: fixed;
+        background-color: #e6e6e6;
+        top: 0;
+        bottom: 0;
+        width: 300px;
+        display: inline-block;
+        transition: width .4s;
+        color: #fff;
+        overflow: hidden;
+        //z-index: 300;
+
+        &-header{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 28px;
+            background-color: inherit;
+        }
+        &-swicher {
+            display: flex;
+            flex-direction: column;
+            width: 50px;
+            position: absolute;
+            right: 0;
+            background-color: inherit;
+            cursor: pointer;
+            height: 40px;
+            justify-content: center;
+            align-items: flex-end;
+            right: 28px;
+
+            &:hover {
+                span {
+                    width: 24px;
+                    transition: width 0.4s;
+                }
+            }
+
+            span {
+                background-color: #737373;
+                transition: width 0.4s;
+            }
+
+            &:first-child {
+                width: 12px;
+                margin-bottom: 4px;
+            }
+
+            &:last-child {
+                width: 20px;
+            }
+        }
+        &-logo{
+            margin-left: 2px;
+            display: inline-block;
+            min-width: 110px;
+            max-width: 111px;
+            height: 25px;
+            overflow: hidden;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-image: url('../../../../../public/logo192.png');
+        }
+        &-content{
+            height: 100vh;
+            overflow-y: hidden;
+        }
+
+    }
+    &__list{
+        &-item{
+            font-size: 16px;
+            font-family: Lato;
+            font-weight: 400;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: normal;
+            letter-spacing: normal;
+            cursor: pointer;
+            max-height: 42px;
+            // overflow: hidden;
+            transition: max-height .4s;
+            position: relative;
+            margin-bottom: 10px;
+
+            .list--title{
+                width: 260px;
+                position: relative;
+                display: flex;
+                align-items: center;
+                flex-wrap: nowrap;
+                height: 42px;
+                opacity: .6;
+            }
+            .list--title__content{
+                a{
+                    color: #4d4d4d;
+                }
+            }
+        }
+    }
+}
