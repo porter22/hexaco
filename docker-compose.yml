@@ -12,12 +12,12 @@ services:
     build: 
       context: ./hexaco-backend
     ports:
-      - "5000:5000"
+      - "8085:5000"
     environment:
       - DATABASE_URL=postgres://${DATABASE_USER}:${DATABASE_PASSWORD}@database:5432/${DATABASE_DB}
       
   database:
-    container_name: database
+    container_name: hexaco-database
     image: "postgres:latest"
     environment:
       POSTGRES_DB: dbname
@@ -25,3 +25,14 @@ services:
       POSTGRES_PASSWORD: password
     ports:
       - "5432:5432"
+
+  load-database:
+    container_name: load-database
+    image: postgres:latest
+    volumes:
+      - ./hrgpt.sql:/docker-entrypoint-initdb.d/hrgpt.sql
+    environment:
+      POSTGRES_DB: dbname
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+    command: ["postgres"]

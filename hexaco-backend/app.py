@@ -8,7 +8,11 @@ from flask_migrate import Migrate
 from datetime import datetime
 from sqlalchemy import orm
 from flasgger import Swagger
-from config import SECRET_KEY, JWT_SECRET_KEY, DATABASE_URL
+# from config import SECRET_KEY, JWT_SECRET_KEY, DATABASE_URL
+
+SECRET_KEY = 'TGj6G/6D4*pa\V'
+JWT_SECRET_KEY = 'x!);QknF/6j*WA'
+DATABASE_URL = 'postgresql://agzid:0#WGoQB3E23xq4@localhost/hrgpt'
 
 import json
 from gpt_module import run_gpt_function  # Import the function
