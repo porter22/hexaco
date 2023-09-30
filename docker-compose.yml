@@ -3,18 +3,20 @@ services:
   frontend:
     container_name: frontend
     build: 
-      context: ./hexaco-frontend
+      context: ./frontend
     ports:
       - "3000:3000"
 
   backend:
     container_name: backend
     build: 
-      context: ./hexaco-backend
+      context: ./backend
     ports:
       - "5000:5000"
     environment:
       - DATABASE_URL=postgres://${DATABASE_USER}:${DATABASE_PASSWORD}@database:5432/${DATABASE_DB}
+    volumes:
+      - /mnt/newdisk/hexaco/backend:/usr/src/app/backend
       
   database:
     container_name: database
