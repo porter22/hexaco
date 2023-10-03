@@ -13,5 +13,12 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy the app source code to the working directory
 COPY . .
 
+COPY config.py /usr/src/app/backend/config.py
+
+ENV PYTHONPATH "${PYTHONPATH}:/usr/src/app/hexaco-backend"
+ENV PYTHONUNBUFFERED 1
+
+EXPOSE 8085
+
 # Start the app
-CMD ["flask", "run"]
+CMD ["flask", "run", "--port", "8085"]

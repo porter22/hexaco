@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHouse, faUser, faNoteSticky } from '@fortawesome/free-solid-svg-icons';
@@ -6,7 +6,7 @@ import './MainSidebar.scss'
 
 
 const links = [
-    { to: '/', text: 'Home', icon: faHouse },
+    { to: '/', text: 'Dashboard', icon: faHouse },
     { to: '/login', text: 'Login',  icon: '' },
     { to: '/admin', text: 'Add Employee',  icon: faUser },
     { to: '/create-group', text: 'Create Group', icon: '' },
@@ -19,13 +19,26 @@ const links = [
   ];
 
 
-function MainSidebar() {
+function MainSidebar({ onSidebarValue }) {
+    const [isSidebarExpanded, setSidebarExpanded] = useState(true);
+    const [isSidebarFixed, setSidebarFixed] = useState(false);
+    const [sidebarWidth, setSidebarWidth] = useState(250);
+
+    const toggleSidebar = () => {
+        setSidebarExpanded(!isSidebarExpanded);
+        setSidebarWidth(isSidebarExpanded ? 75 : 250);
+        onSidebarValue(sidebarWidth);
+    };
+    const fixSidebar = () => {
+        setSidebarFixed(!isSidebarFixed);
+    };
+
     return (
-        <div id='sidebar__mn'>
-            <nav className='sidebar__mn'>
+        <div id='sidebar__mn' className={`sidebar__mna ${isSidebarFixed ? 'fixed' : ''}`} style={{ width: sidebarWidth }}>
+            <nav className={`sidebar__mn ${isSidebarExpanded ? '' : 'collapsed'}`}>
                 <div className='sidebar__mn-header'>
                     <div className='sidebar__mn-logo'></div>
-                    <div className='sidebar__mn-swicher'>
+                    <div className='sidebar__mn-swicher' onClick={toggleSidebar}>
                         <span></span>
                         <span></span>
                         <span></span>

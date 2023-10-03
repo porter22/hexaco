@@ -1,0 +1,25 @@
+.button{
+    border-radius: 4px;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    height: 38px;
+    min-width: 38px;
+    transition: box-shadow .2s;
+
+    span{
+        font-size: 14px;
+        padding: 10px 20px;
+        font-family: Lato;
+        font-weight: 700;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 14px;
+        letter-spacing: normal;
+        display: block;
+    }
+
+    &.btn-prim{
+        background: #4caf50;
+    }
+}

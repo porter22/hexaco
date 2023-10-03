@@ -66,9 +66,9 @@
     border-radius: 3px;
   }
   
-  input[type="email"] {
+  /* input[type="email"] {
     width: 20%;
-  }
+  } */
   
   button[type="submit"] {
     display: block;

@@ -1,0 +1,102 @@
+.input {
+    &-label {
+        display: inline-block;
+        font-size: 12px;
+        margin-bottom: 8px;
+    }
+
+    &-field {
+        width: 100%;
+        resize: none;
+        // padding: 10px 16px;
+        font-size: 14px;
+
+        &:disabled {
+            opacity: 0.3;
+            border-color: #ccc;
+            background-color: #eee;
+        }
+    }
+
+    &-icon-wrapper {
+        position: relative;
+        display: flex;
+        width: 100%;
+        align-items: center;
+
+        &_has-icon {
+            .input-field {
+                border-radius: 4px 0 0 4px;
+            }
+
+            .input-unit {
+                cursor: pointer;
+            }
+        }
+
+        &.icon-eye {
+            position: absolute;
+            right: 10px;
+            bottom: calc(50% - 10px);
+        }
+    }
+
+    &-error-message {
+        font-size: 10px;
+        color: #dc3848;
+        padding: 4px;
+        font-family: Lato;
+        line-height: 12px;
+        position: absolute;
+        bottom: -20px;
+        white-space: nowrap;
+        width: 100%;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+
+    &-wrapper {
+        position: relative;
+    }
+}
+.input-wrapper .input-unit {
+    line-height: 38px;
+    cursor: pointer;
+}
+.vn-time-picker {
+    padding: 0;
+    border: none;
+    width: 18px;
+    height: 34px;
+
+    &:focus {
+        border: none;
+        box-shadow: none;
+    }
+}
+.fallback-time-picker {
+    position: relative;
+    width: 95%;
+    margin: -35px auto 0 auto;
+    background-color: #ffffff;
+    z-index: 1;
+}
+
+.list-wrapper {
+    position: absolute;
+    width: 100%;
+    max-height: 205px;
+    overflow-y: auto;
+    background-color: #ffffff;
+    box-shadow: 0 10px 15px 0 rgba(0,0,0, 0.15);
+    z-index: 2;
+}
+
+
+.highlighted {
+    font-weight: bold;
+}
+
+.input-field.time-input {
+    padding-left: 5px;
+}

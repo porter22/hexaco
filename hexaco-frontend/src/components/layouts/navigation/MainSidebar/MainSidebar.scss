@@ -2,7 +2,7 @@
     height: calc(100vh - 40px);
     display: inline-block;
     // z-index: 100;
-    margin-right: 78px;
+    // margin-right: 78px;
 
     
 }
@@ -12,7 +12,7 @@
         background-color: #e6e6e6;
         top: 0;
         bottom: 0;
-        width: 300px;
+        width: 250px;
         display: inline-block;
         transition: width .4s;
         color: #fff;
@@ -36,31 +36,32 @@
             cursor: pointer;
             height: 40px;
             justify-content: center;
-            align-items: flex-end;
-            right: 28px;
-
+        
             &:hover {
                 span {
-                    width: 24px;
+                    width: 25px;
                     transition: width 0.4s;
                 }
             }
-
             span {
                 background-color: #737373;
                 transition: width 0.4s;
-            }
+                height: 2px;
+                width: 25px;
 
-            &:first-child {
-                width: 12px;
-                margin-bottom: 4px;
-            }
-
-            &:last-child {
-                width: 20px;
+                &:first-child {
+                    width: 13px;
+                    margin-bottom: 6px;
+                }
+        
+                &:last-child {
+                    width: 20px;
+                    margin-top: 6px;
+                }
             }
         }
         &-logo{
+            display: none;
             margin-left: 2px;
             display: inline-block;
             min-width: 110px;
@@ -75,7 +76,12 @@
             height: 100vh;
             overflow-y: hidden;
         }
-
+        &.collapsed{
+            max-width: 75px;
+        }
+        &.fixed{
+            position: fixed;
+        }
     }
     &__list{
         &-item{

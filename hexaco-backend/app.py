@@ -45,7 +45,10 @@ app.config['JWT_SECRET_KEY'] = JWT_SECRET_KEY  # Replace with your own JWT secre
 
 #CORS(app, resources={r"/*": {"origins": "http://localhost:3001"}})
 #CORS(app, resources={r"/*": {"origins": "http://localhost:3000"}})
-CORS(app, resources={r"/*": {"origins": ["http://localhost:3000", "http://localhost:3001", "http://45.136.58.205:3000", "http://45.136.58.205:3001"]}})
+CORS(app, resources={r"/*": {"origins": ["http://localhost:8080",
+"http://localhost:3000", "http://localhost:3001", "http://45.136.58.205:3000", "http://45.136.58.205:3001",
+"http://45.136.58.205:8080"
+]}})
 
 db = SQLAlchemy(app)
 jwt = JWTManager(app)
