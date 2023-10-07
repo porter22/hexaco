@@ -78,10 +78,16 @@
         }
         &.collapsed{
             max-width: 75px;
+
+
+            .list--title__content{
+                display: none;
+            }
         }
         &.fixed{
             position: fixed;
         }
+        
     }
     &__list{
         &-item{
@@ -111,8 +117,17 @@
             .list--title__content{
                 a{
                     color: #4d4d4d;
+                    text-decoration: none;
                 }
             }
         }
     }
+}
+.svg-inline--f{
+    color: #4d4d4d;
+}
+.sidebar__list-item .list--title .svg-inline--fa {
+    color: #4d4d4d;
+    font-size: 16px;
+    padding-right: 10px;
 }

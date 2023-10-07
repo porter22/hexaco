@@ -1,20 +1,20 @@
 import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHouse, faUser, faNoteSticky } from '@fortawesome/free-solid-svg-icons';
+import { faHouse, faUser, faNoteSticky, faUsers, faUserPlus, faArrowRightFromBracket, faChartPie, faClipboardQuestion, faClipboard } from '@fortawesome/free-solid-svg-icons';
 import './MainSidebar.scss'
 
 
 const links = [
     { to: '/', text: 'Dashboard', icon: faHouse },
-    { to: '/login', text: 'Login',  icon: '' },
+    { to: '/login', text: 'Login',  icon: faArrowRightFromBracket },
+    { to: '/userlist', text: 'Employees',  icon: faUsers },
+    { to: '/assign-assessment', text: 'Assessments', icon: faNoteSticky },
     { to: '/admin', text: 'Add Employee',  icon: faUser },
-    { to: '/create-group', text: 'Create Group', icon: '' },
-    { to: '/assign-assessment', text: 'Assign Assessment', icon: faNoteSticky },
-    { to: '/results', text: 'Results',  icon: ''  },
-    { to: '/userlist', text: 'User List',  icon: ''  },
-    { to: '/questionlist', text: 'Question List',  icon: ''  },
-    { to: '/responseform', text: 'Response Form',  icon: ''  },
+    { to: '/create-group', text: 'Create Group', icon: faUserPlus },
+    { to: '/results', text: 'Analytics',  icon: faChartPie},
+    { to: '/questionlist', text: 'Question List',  icon: faClipboardQuestion  },
+    { to: '/responseform', text: 'Response Form',  icon: faClipboard  },
     // Добавьте другие ссылки при необходимости
   ];
 

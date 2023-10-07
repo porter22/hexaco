@@ -1,7 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import Axios from 'axios';
-import './ResultsPage.css';
+
+import { APIgetUsers } from '../services/APIuserService.js'
+import {APIgetGroups} from '../services/APIgroupService.js';
+import { APIgetForms, APIgetResults } from '../services/APIassesmentService.js';
+import DropdownSelect from '../components/Dropdown/DropdownSelect.js';
+import CommonButton from '../components/Buttons/CommonButton/CommonButton.js';
+import Table from '../components/TableList/TableList.js';
+import './ResultsPage.scss';
 
 const ResultsPage = () => {
   const [assessmentCategory, setAssessmentCategory] = useState('group');
@@ -11,7 +17,8 @@ const ResultsPage = () => {
   const [selectedAssessmentType, setSelectedAssessmentType] = useState('');
   const [scheduleDate, setScheduleDate] = useState(null);
   const [scheduleTime, setScheduleTime] = useState(null);
-
+  const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
   const [groups, setGroups] = useState([]);
   const [users, setUsers] = useState([]);
   const [assessmentTypes, setAssessmentTypes] = useState([]);
@@ -20,72 +27,97 @@ const ResultsPage = () => {
   const [reportText, setReportText] = useState("");
 
 
-    useEffect(() => {
-        fetch('http://localhost:5000/groups')
-            .then(response => response.json())
-            .then(data => setGroups(data))
-            .catch(error => console.error('Error:', error));
-    }, []);
+  useEffect(() => {
+    getUsersList();
+    getGroupsList();
+    getForms();
+  }, []);
+  
+  useEffect(() => {
+    getResults();
+  }, [selectedEmployee, users]);
 
-    useEffect(() => {
-        fetch('http://localhost:5000/forms')
-            .then(response => response.json())
-            .then(data => setAssessmentTypes(data))
-            .catch(error => console.error('Error:', error));
-    }, []);
+  const getUsersList = async () => {
+    try{
+      const data = await APIgetUsers();
+      setUsers(data);
+    } catch(error) {
+      console.log(error);
+      setError(error.message);
+    } finally {
+      setIsLoading(false);
+    }
+  }
 
-    useEffect(() => {
-      let url = 'http://localhost:5000/results';
-      if (selectedEmployee) {
-        url = `http://localhost:5000/results/${selectedEmployee}`;
-      }
-    
-      fetch(url)
-        .then((response) => response.json())
-        .then((data) => setFormResponses(data))
-        .catch((error) => console.error('Error:', error));
-    
-    }, [selectedEmployee, users]);
-    
+  const getGroupsList = async() => {
+    try{
+      const data = await APIgetGroups();
+      setGroups(data);
+    } catch(error) {
+      console.log(error);
+      setError(error.message);
+    } finally {
+      setIsLoading(false);
+    }
+  }
 
-    /*useEffect(() => {
-        fetch('http://localhost:5000/users')
-          .then(response => response.json())
-          .then(data => setUsers(data))
-          .catch(error => console.error('Error:', error));
-        
-      }, []);*/
+  const getForms = async () => {
+    try{
+      const data = await APIgetForms();
+      setAssessmentTypes(data);
+    } catch(error) {
+      console.log(error);
+      setError(error.message);
+    } finally {
+      setIsLoading(false);
+    }
+  }
 
-      useEffect(() => {
-        Axios.get('http://localhost:5000/users')
-          .then(response => setUsers(response.data))
-          .catch(error => console.error('Error:', error));
-      }, []);
+  const getResults = async () => {
+    try{
+      let employeeId = selectedEmployee ? selectedEmployee : 0;
+      const data = await APIgetResults(employeeId);
+      setFormResponses(data);
+    } catch(error) {
+      console.log(error);
+      setError(error.message);
+    } finally {
+      setIsLoading(false);
+    }
+  }
+
+  const generateReport = async () => {
+    const url = 'http://localhost:5000/generate-report/${selectedEmployee}/${selectedAssessmentType}';
+
+    try {
+      const response = await fetch(url, {
+        method: 'GET',
+      });
+
+      const data = await response.json();
+      console.log(data)
+
+      setReportText(data.report);
+
+    } catch (error) {
+      console.error("There was an error generating the report:", error);
+    }
+  }
       
-      const generateReport = async () => {
-        const url = 'http://localhost:5000/generate-report/${selectedEmployee}/${selectedAssessmentType}';
-    
-        try {
-          const response = await fetch(url, {
-            method: 'GET',
-          });
-    
-          const data = await response.json();
-          console.log(data)
+  const formattedUsers = users.filter(user => user.role === 'pemployee').map(user => ({
+    id: user.id,
+    value: user.id,
+    text: user.username
+  }));
 
-          setReportText(data.report);
-          // Handle the response data or update your React state here...
-    
-        } catch (error) {
-          console.error("There was an error generating the report:", error);
-        }
-      }
-      
+  const formattedAssessmentTypes = assessmentTypes.map(assessment => ({
+    id: assessment.id,
+    value: assessment.id,
+    text: assessment.title
+  }));
 
-  const handleAssessmentTypeChange = (e) => {
-    const selectedValue = e.target.value;
-    console.log(selectedValue)
-    setSelectedAssessmentType(e.target.value);
+  const handleAssessmentTypeChange = (selectedValue) => {
+    setSelectedAssessmentType(selectedValue);
   };
   
   const handleAssessmentCategoryChange = (e) => {
@@ -96,8 +128,8 @@ const ResultsPage = () => {
     setSelectedGroup(e.target.value);
   };
 
-  const handleEmployeeChange = (e) => {
-    const selectedValue = e.target.value;
+  const handleEmployeeChange = (value) => {
+    const selectedValue = value;
   
     // Update the selectedEmployee state
     setSelectedEmployee(selectedValue);
@@ -119,108 +151,73 @@ const ResultsPage = () => {
     e.preventDefault();
     // Handle form submission logic here
   };
+  const columns = [
+    {firstName: "First name"}, 
+    {lastName: "Last name"}, 
+    {observant_id: "Observant ID"}, 
+    {form_id: "Form ID"},
+    {assessmentTitle: "Form title"},
+    {submitted_at: "Submitted At"},
+    {event_id: "Response ID"},
+    {link: "Details"}
+  ];
 
-    // Filter form responses based on selectedEmployee and selectedAssessmentType
-    const filteredFormResponses = formResponses.filter((response) => {
-      if (selectedEmployee && response.user_id !== parseInt(selectedEmployee)) {
-        return false;
-      }
-      if (selectedAssessmentType && response.form_id !== selectedAssessmentType) {
-        return false;
-      }
-      return true;
-    }).map((response) => {
-      const user = users.find((user) => user.id === response.user_id);
-      const assessmentType = assessmentTypes.find((type) => type.id === response.form_id);
-      console.log(response)
-      return {
-        ...response,
-        firstName: user?.firstname || '',
-        lastName: user?.lastname || '',
-        assessmentTitle: assessmentType?.title || ''
-      };
-    });
+  const filteredFormResponses = formResponses.filter((response) => {
+    if (selectedEmployee && response.user_id !== parseInt(selectedEmployee)) {
+      return false;
+    }
+    if (selectedAssessmentType && response.form_id !== selectedAssessmentType) {
+      return false;
+    }
+    return true;
+  }).map((response) => {
+    const user = users.find((user) => user.id === response.user_id);
+    const assessmentType = assessmentTypes.find((type) => type.id === response.form_id);
+    const detailURL = `/response-details/${response.id}`;
+    console.log(response)
+    return {
+      ...response,
+      firstName: user?.firstname || '',
+      lastName: user?.lastname || '',
+      assessmentTitle: assessmentType?.title || '',
+      link: (
+        <Link to={detailURL}>Link</Link>
+      ),
+    };
+  });
     
   return (
-    <div class="form-block">
-        <form id="email-form" name="email-form" class="form">
-            <div class="div-block">
-                    <div className="form-row">
-                        <label htmlFor="employee">Select Employee:</label>
-                        <select id="employee" value={selectedEmployee} onChange={handleEmployeeChange}>
-                        <option value="">Select Employee</option>
-                        {users.filter(user => user.role === 'pemployee').map(user => (
-                            <option key={user.id} value={user.id}>{user.username}</option>
-                        ))}
-                    </select>
-                    </div>
-
-
-                <div className="form-row">
-                    <label htmlFor="assessmentType">Select Assessment:</label>
-                    <select id="assessmentType" value={selectedAssessmentType} onChange={handleAssessmentTypeChange}>
-                    <option value="">Select an assessment</option>
-                    {
-                        // Render options dynamically from available assessments
-                        assessmentTypes.map(assessmentType => (
-                            <option key={assessmentType.id} value={assessmentType.id}>
-                                {assessmentType.title}
-                            </option>
-                        ))
-                    }
-                    </select>
-                </div>
-                
-                <button type="button" onClick={generateReport}>Generate Report</button>
-            </div>
-
-            <div className="div-block">
-              {/* Display the filtered form responses */}
-              <table className="form-responses">
-                <thead>
-                  <tr>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>User ID</th>
-                    <th>Form ID</th>
-                    <th>Form Title</th>
-                    <th>Submitted At</th>
-                    <th>Response ID</th>
-                    {/* Add other fields as needed */}
-                  </tr>
-                </thead>
-                <tbody>
-                  {filteredFormResponses.map((response) => (
-                    <tr key={response.event_id} className="form-response">
-                      <td>{response.firstName}</td>
-                      <td>{response.lastName}</td>
-                      <td>{response.user_id}</td>
-                      <td>{response.form_id}</td>
-                      <td>{response.assessmentTitle}</td>
-                      <td>{response.submitted_at}</td>
-                      <td>{response.event_id}</td>
-                      <td>
-                        {/* New Details link */}
-                        <Link to={`/response-details/${response.event_id}`}>Details</Link>
-                      </td>
-                      
-                      {/* Add other fields as needed */}
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-
-              <div className="report-section">
-                <h2>Generated Report:</h2>
-                <p>{reportText}</p>
-              </div>
-              
-            </div>
-
-    
-  </form>
-</div>
-
+    <div className='result-details'>
+      <div className='section-title'>Reports</div>
+      <hr />
+      <div className="form-container d-flex reports-header mb-5">
+        <DropdownSelect 
+            id="employee"
+            labelText="Select Employee:"
+            options={formattedUsers}
+            onSelect={handleEmployeeChange}
+            className="mr-4"
+          >
+          </DropdownSelect>
+          <DropdownSelect 
+            id="assessmentType"
+            labelText="Select Assessment:"
+            options={formattedAssessmentTypes}
+            onSelect={handleAssessmentTypeChange}
+            className="mr-4"
+          >
+          </DropdownSelect>
+          <CommonButton onClick={generateReport} classes="btn-action mr-3">Generate Report</CommonButton>
+        </div>
+        <div className="reports-wrapper">
+          <Table columns={columns} data={filteredFormResponses} className="mt-5">
+          </Table>
+          <div className="report-section">
+            <h2>Generated Report:</h2>
+            <p>{reportText}</p>
+          </div>
+        </div>
+      </div>
   );
 };
 

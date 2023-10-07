@@ -21,4 +21,4 @@ ENV PYTHONUNBUFFERED 1
 EXPOSE 8085
 
 # Start the app
-CMD ["flask", "run", "--port", "8085"]
+CMD ["flask", "run", "--host", "0.0.0.0", "--port", "8085"]

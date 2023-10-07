@@ -11,7 +11,7 @@ function CommonButton(props) {
     
     switch (buttonsType.toLowerCase()) {
       case 'primary':
-        buttonClasses += 'btn-prim vn_btn_bg-color-prim color_prim';
+        buttonClasses += 'btn-prim';
         break;
       case 'secondary':
         buttonClasses += 'btn-secondary';
@@ -23,8 +23,7 @@ function CommonButton(props) {
         buttonClasses += 'btn-danger';
         break;
       default:
-        buttonClasses += 'btn-prim vn_btn_bg-color-prim color_prim';
-        break;
+        
     }
 
     if (isSmall) {
@@ -66,7 +65,7 @@ CommonButton.propTypes = {
 CommonButton.defaultProps = {
   disabled: false,
   classes: '',
-  buttonsType: 'primary',
+  buttonsType: '',
   isSmall: false,
   full: false,
   onClick: () => {},

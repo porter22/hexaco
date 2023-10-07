@@ -1,0 +1,28 @@
+.employee-details{
+    width: 100%;
+    max-width: 1200px;
+    
+    &-column{
+        border-right: 1px solid #e6e6e6;
+        padding-right: 15px;
+        box-sizing: content-box;
+    }
+    &-form{
+        display: grid;
+        grid-gap: 10px 25px;
+        gap: 10px 25px;
+    
+        &__row{
+            grid-column-start: 1;
+            grid-column-end: 3;
+        }
+    }
+    &-image{
+        width: 100%;
+        max-width: 100px;
+
+        img{
+            width: 100%;
+        }
+    }
+}

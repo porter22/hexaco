@@ -1,23 +1,39 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import Table from '../components/TableList/TableList.js';
+import {APIgetQuestions} from '../services/APIquestionsService.js';
+
 
 const QuestionList = () => {
   const [questions, setQuestions] = useState([]);
+  const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Fetch question data from backend API
-    fetch('/api/questions')
-      .then((response) => response.json())
-      .then((data) => setQuestions(data));
+    getQuestions();
   }, []);
 
+  const getQuestions = async () => {
+    try {
+      const data = await APIgetQuestions();
+      setQuestions(data);
+    } catch(error) {
+      console.log(error);
+      setError(error.message);
+    } finally {
+      setIsLoading(false);
+    }
+  }
+  const columns = [{text: "Question text"}];
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
+
   return (
-    <div>
-      <h2>Question List</h2>
-      <ul>
-        {questions.map((question) => (
-          <li key={question.id}>{question.text}</li>
-        ))}
-      </ul>
+    <div className='questions-list'>
+      <div className='section-title'>Questions List</div>
+      <hr />
+      <Table columns={columns} data={questions} className="mt-5"/>
     </div>
   );
 };

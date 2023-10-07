@@ -1,7 +1,34 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import {APIgetQuestions} from '../services/APIquestionsService.js';
 
-const ResponseForm = ({ questions }) => {
+import CommonButton from '../components/Buttons/CommonButton/CommonButton.js';
+import InputWithLabel from '../components/Inputs/InputWithLabel/InputWithLabel.js';
+
+import './ResponseForm.scss';
+
+const ResponseForm = () => {
   const [responses, setResponses] = useState([]);
+  const [questions, setQuestions] = useState([]);
+  const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+  
+
+  useEffect(() => {
+    getQuestions();
+  }, []);
+
+  const getQuestions = async () => {
+    try {
+      const data = await APIgetQuestions();
+      setQuestions(data);
+    } catch(error) {
+      console.log(error);
+      setError(error.message);
+    } finally {
+      setIsLoading(false);
+    }
+  }
+  const columns = ["text"];
 
   const handleResponseChange = (e, index) => {
     const updatedResponses = [...responses];
@@ -11,27 +38,46 @@ const ResponseForm = ({ questions }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Send responses to backend API
     console.log('Submitting responses:', responses);
   };
 
   return (
-    <div>
-      <h2>Response Form</h2>
-      <form onSubmit={handleSubmit}>
+    <div className='response-form'>
+      <div className='section-title'>Response Form</div>
+      <hr />
+      <div>
         {questions.map((question, index) => (
           <div key={question.id}>
-            <label htmlFor={`response-${index}`}>{question.text}</label>
+            <InputWithLabel
+              inputType="text"
+              id={`response-${index}`}
+              labelText={question.text}
+              className="mr-5"
+              placeholder="Group Name"
+              value={responses[index] || ''}
+              onChange={(e) => handleResponseChange(e, index)}
+              required
+            ></InputWithLabel>
+            {/* <label htmlFor={`response-${index}`}>{question.text}</label>
             <input
               type="text"
               id={`response-${index}`}
               value={responses[index] || ''}
               onChange={(e) => handleResponseChange(e, index)}
-            />
+            /> */}
           </div>
         ))}
-        <button type="submit">Submit</button>
-      </form>
+        <div className='d-flex justify-space-between mt-4'>
+            <div className='group-details-actions'>
+            {isLoading ? (
+                <div className="loader">Loading...</div>
+              ) : (
+                <CommonButton onClick={handleSubmit} classes="btn-prim mr-3">Submit</CommonButton>
+              )}
+            </div>
+            <div className='employee-details-import'></div>
+          </div>
+      </div>
     </div>
   );
 };

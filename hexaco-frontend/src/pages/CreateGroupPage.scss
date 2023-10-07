@@ -1,0 +1,40 @@
+.group-details{
+    &-row{
+        width: 100%;
+        max-width: 600px;
+        &>div{
+            width: 100%;
+        }
+    }
+    &-list{
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+
+        &-element{
+            display: flex;
+            justify-content: space-between;
+            border: 1px solid #e0e1e4;
+            padding: 0 12px;
+            height: 40px;
+            font-weight: 400;
+            font-size: 14px;
+            align-items: center;
+
+            &:first-child{
+                font-weight: bold;
+            }
+        }
+    }
+    .icon-close {
+        cursor: pointer;
+        margin-left: 5px;
+    }
+    .loader {
+        display: inline-block;
+        margin-right: 10px;
+        font-size: 14px;
+        color: #333;
+        font-weight: bold;
+    }
+}

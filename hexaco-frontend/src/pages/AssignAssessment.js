@@ -1,95 +1,120 @@
 import React, { useState, useEffect } from 'react';
 import DatePicker from 'react-datepicker';
+import {APIcreateAssesment, APIgetForms} from '../services/APIassesmentService.js';
+import {APIgetGroups} from '../services/APIgroupService.js';
+import {APIgetUsers} from '../services/APIuserService.js';
 import 'react-datepicker/dist/react-datepicker.css';
-import './AssignAssessment.css';
+import './AssignAssessment.scss';
+
+import Checkbox from '../components/Checkbox/Checkbox.js';
+import DropdownSelect from '../components/Dropdown/DropdownSelect.js';
+import CommonButton from '../components/Buttons/CommonButton/CommonButton.js';
+import RadioButton from '../components/RadioButton/RadioButton.js';
 
 const AssignAssessment = () => {
   const [assessmentCategory, setAssessmentCategory] = useState('group');
   const [selectedGroup, setSelectedGroup] = useState('');
   const [selectedEmployee, setSelectedEmployee] = useState('');
   const [selectedObserver, setSelectedObserver] = useState('');
+  const [isNotify, setNotification] = useState('');
   const [selectedAssessmentType, setSelectedAssessmentType] = useState('');
   const [scheduleDate, setScheduleDate] = useState(null);
   const [scheduleTime, setScheduleTime] = useState(null);
   const [groups, setGroups] = useState([]);
   const [users, setUsers] = useState([]);
   const [assessmentTypes, setAssessmentTypes] = useState([]);
+  const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [isLoadingCreateAssign, setIsLoadingCreateAssign] = useState(false);
 
-    useEffect(() => {
-        fetch('http://localhost:5000/groups')
-            .then(response => response.json())
-            .then(data => setGroups(data))
-            .catch(error => console.error('Error:', error));
-    }, []);
 
-    useEffect(() => {
-        fetch('http://localhost:5000/forms')
-            .then(response => response.json())
-            .then(data => setAssessmentTypes(data))
-            .catch(error => console.error('Error:', error));
-    }, []);
+  useEffect(() => {
+      getUsers();
+      getUserGroups();
+      getForms();
+  }, []);
 
-    useEffect(() => {
-        fetch('http://localhost:5000/users')
-          .then(response => response.json())
-          .then(data => setUsers(data))
-          .catch(error => console.error('Error:', error));
-      }, []);
-
-      const handleScheduledAssessment = () => {
-        const scheduledAssessmentData = {
-          selectedEmployee: selectedEmployee,
-          //user_ids: addedUsers.map((user) => user.id),
-          selectedGroup: selectedGroup,
-          selectedObserver: selectedObserver,
-          selectedAssessmentType: selectedAssessmentType, //assessment_id
-          selectedAssessmentCategory: assessmentCategory, //Individual or group
-          scheduleDate: scheduleDate,
-          scheduleTime: scheduleTime
-        };
-      
-        fetch('http://localhost:5000/schedule-assessment', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(scheduledAssessmentData),
-        })
-          .then((response) => {
-            if (!response.ok) {
-              throw new Error('Failed to create group');
-            }
-            return response.json();
-          })
-          .then((data) => {
-            console.log('Assessment scheduled:', data);
-            // Handle any success actions here
-          })
-          .catch((error) => {
-            console.error(error);
-            // Handle any error actions here
-          });
+  const handleScheduledAssessment = async() => {
+    try{
+      setIsLoadingCreateAssign(true)
+      const scheduledAssessmentData = {
+        selectedEmployee: selectedEmployee,
+        //user_ids: addedUsers.map((user) => user.id),
+        selectedGroup: selectedGroup,
+        selectedObserver: selectedObserver,
+        isNotify: setNotification,
+        selectedAssessmentType: selectedAssessmentType, //assessment_id
+        selectedAssessmentCategory: assessmentCategory, //Individual or group
+        scheduleDate: scheduleDate,
+        scheduleTime: scheduleTime
       };
+      const data = await APIcreateAssesment(scheduledAssessmentData);
+      console.log('Assessment scheduled:', data);
+    }catch(error){
+      console.error(error);
+    }finally{
+      setIsLoadingCreateAssign(false)
+    }
+  }
 
-  const handleAssessmentTypeChange = (e) => {
-    setSelectedAssessmentType(e.target.value);
+  const getUsers = async () => {
+    try{
+      const data = await APIgetUsers();
+      setUsers(data);
+    } catch(error) {
+      console.log(error);
+      setError(error.message);
+    } finally {
+      setIsLoading(false);
+    }
+  }
+
+  const getUserGroups = async() => {
+    try{
+      const data = await APIgetGroups();
+      setGroups(data);
+    } catch(error) {
+      console.log(error);
+      setError(error.message);
+    } finally {
+      setIsLoading(false);
+    }
+  }
+
+  const getForms = async () => {
+    try{
+      const data = await APIgetForms();
+      setAssessmentTypes(data);
+    } catch(error) {
+      console.log(error);
+      setError(error.message);
+    } finally {
+      setIsLoading(false);
+    }
+  }
+
+  const handleAssessmentTypeChange = (selected) => {
+    setSelectedAssessmentType(selected);
   };
   
   const handleAssessmentCategoryChange = (e) => {
     setAssessmentCategory(e.target.value);
   };
 
-  const handleGroupChange = (e) => {
-    setSelectedGroup(e.target.value);
+  const handleGroupChange = (obj) => {
+    setSelectedGroup(obj);
   };
 
-  const handleEmployeeChange = (e) => {
-    setSelectedEmployee(e.target.value);
+  const handleEmployeeChange = (selectedUser) => {
+    setSelectedEmployee(selectedUser);
   };
 
-  const handleObserverChange = (e) => {
-    setSelectedObserver(e.target.value);
+  const handleObserverChange = (selectedObserver) => {
+    setSelectedObserver(selectedObserver);
   };
+  const handleConfirmationChange = (value) => {
+    setNotification(value);
+  }
 
   const handleDateChange = (date) => {
     setScheduleDate(date);
@@ -103,124 +128,137 @@ const AssignAssessment = () => {
     e.preventDefault();
     // Handle form submission logic here
   };
+  const formattedGroups = groups.map(group => ({
+      id: group.id,
+      value: group.id,
+      text: group.name
+    }));
+  const formattedAssessmentTypes = assessmentTypes.map(assessment => ({
+      id: assessment.id,
+      value: assessment.id,
+      text: assessment.title
+    }));
+  const formattedUsers = users.filter(user => user.role === 'pemployee').map(user => ({
+    id: user.id,
+    value: user.id,
+    text: user.username
+  }));
+  const formattedUsersName = users.filter(user => user.role === 'pemployee').map(user => ({
+    id: user.id,
+    value: user.id,
+    text: `${user.firstname} ${user.lastname}`
+  }));
 
   return (
-    <div class="form-block">
-        <form id="email-form" name="email-form" class="form">
-            <div class="div-block">
-            
-                <h2>Assessment Details</h2>
-
-                <div className="radio-container">
-                    <input
-                        type="radio"
-                        id="individualAssessment"
-                        name="assessmentCategory"
-                        value="individual"
-                        class="w-form-formradioinput"
-                        checked={assessmentCategory === 'individual'}
-                        onChange={handleAssessmentCategoryChange}
-                    />
-                    <label htmlFor="individualAssessment">Individual Assessment</label>
-                </div>
-
-                <div className="radio-container">
-                    <input
-                        type="radio"
-                        id="groupAssessment"
-                        name="assessmentCategory"
-                        value="group"
-                        class="w-form-formradioinput"
-                        checked={assessmentCategory === 'group'}
-                        onChange={handleAssessmentCategoryChange}
-                    />
-                    <label htmlFor="groupAssessment">Group Assessment</label>
-                </div>
-
-               
-
-                {assessmentCategory === 'group' && (
-                    <div className="form-row">
-                        <label htmlFor="group">Select Group:</label>
-                        <select id="group" value={selectedGroup} onChange={handleGroupChange}>
-                            <option value="">Select a group</option>
-                            {groups.map(group => (
-                                <option key={group.id} value={group.id}>{group.name}</option>
-                            ))}
-                        </select>
-                    </div>
-                )}
-
-                {assessmentCategory === 'individual' && (
-                    <div className="form-row">
-                        <label htmlFor="employee">Select Employee:</label>
-                        <select id="employee" value={selectedEmployee} onChange={handleEmployeeChange}>
-                        <option value="">Select Employee</option>
-                        {users.filter(user => user.role === 'pemployee').map(user => (
-                            <option key={user.id} value={user.id}>{user.username}</option>
-                        ))}
-                    </select>
-                    </div>
-                )}
-
-                {assessmentCategory === 'individual' && (
-                    <div className="form-row">
-                        <label htmlFor="observer">Select Observer:</label>
-                        <select id="observer" value={selectedObserver} onChange={handleObserverChange}>
-                        <option value="">Select Observer</option>
-                        {users.filter(user => user.role === 'pemployee').map(user => (
-                            <option key={user.id} value={user.id}>{user.username}</option>
-                        ))}
-                    </select>
-                    </div>
-                )}
-
-                <div className="form-row">
-                    <label htmlFor="assessmentType">Select Assessment:</label>
-                    <select id="assessmentType" value={selectedAssessmentType} onChange={handleAssessmentTypeChange}>
-                    <option value="">Select an assessment</option>
-                    {
-                        // Render options dynamically from available assessments
-                        assessmentTypes.map(assessmentType => (
-                            <option key={assessmentType.id} value={assessmentType.id}>
-                                {assessmentType.title}
-                            </option>
-                        ))
-                    }
-                    </select>
-                </div>
-                <button type="button" onClick={handleScheduledAssessment}>Assign</button>
+    <div className="assesment-details">
+      <div className='section-title'>Assign Assessment</div>
+      <hr />
+      <div className="form-container d-flex">
+        <div className="col-1-2 mr-4 assessment-details-column">
+        <div className='section-header mt-5 mb-3'>Assessment Details</div>
+        <div className='mb-5'>
+          <RadioButton
+            id="groupAssessment"
+            name="assessmentCategory"
+            value="group"
+            label="Group Assessment"
+            checked={assessmentCategory === 'group'}
+            className="mr-1"
+            onChange={handleAssessmentCategoryChange}
+          />
+        <RadioButton
+            id="individualAssessment"
+            name="assessmentCategory"
+            value="individual"
+            label="Individual Assessment"
+            checked={assessmentCategory === 'individual'}
+            className="mr-1"
+            onChange={handleAssessmentCategoryChange}
+          />
+        </div>
+            {assessmentCategory === 'group' && (
+              <DropdownSelect 
+                  id="group"
+                  labelText="Select Group:"
+                  options={formattedGroups}
+                  onSelect={handleGroupChange}
+                >
+                </DropdownSelect>
+            )}
+            {assessmentCategory === 'individual' && (
+                <DropdownSelect 
+                  id="employee"
+                  labelText="Select Employee:"
+                  options={formattedUsers}
+                  onSelect={handleEmployeeChange}
+                />
+            )}
+            <div className="form-row mb-5">
+              <DropdownSelect 
+                id="assessmentType"
+                labelText="Select Assessment:"
+                options={formattedAssessmentTypes}
+                onSelect={handleAssessmentTypeChange}
+              />
             </div>
-
-    <div class="w-layout-blockcontainer container">
-        <div className="form-row">
-            <label htmlFor="scheduleDate" >Schedule Date:</label>
-            <DatePicker
-              id="scheduleDate"
-              selected={scheduleDate}
-              onChange={handleDateChange}
-              dateFormat="yyyy-MM-dd"
-              placeholderText="Select a date"
-            />
+            <Checkbox id="isEmailConf"
+              name="isNotificationActive"
+              label="Send email-confirmation"
+              className="mr-1"
+              onChange={handleConfirmationChange}>
+            </Checkbox>
+            <div className='d-flex justify-space-between mt-4'>
+              <div className='group-details-actions'>
+              {isLoadingCreateAssign ? (
+                  <div className="loader">Loading...</div>
+                ) : (
+                  <CommonButton onClick={handleScheduledAssessment} classes="btn-prim mr-3">Assign</CommonButton>
+                )}
+              </div>
+              <div className='employee-details-import'></div>
+            </div>
         </div>
-        <div className="form-row">
-            <label htmlFor="scheduleTime">Schedule Time:</label>
-            <DatePicker
-              id="scheduleTime"
-              selected={scheduleTime}
-              onChange={handleTimeChange}
-              showTimeSelect
-              showTimeSelectOnly
-              timeIntervals={15}
-              timeCaption="Time"
-              dateFormat="h:mm aa"
-              placeholderText="Select a time"
-            />
+        {assessmentCategory === 'individual' && (
+          <div className="col-1-2 mr-4 assessment-details-column">
+            <DropdownSelect 
+                id="observer"
+                labelText="Select Assessors:"
+                options={formattedUsersName}
+                onSelect={handleObserverChange}
+              />
+          </div>
+        )}
+        <div className="col-1-2 mr-4 assessment-details-column">
+          <div className="w-layout-blockcontainer container">
+              <div className="form-row">
+                  <label htmlFor="scheduleDate" >Schedule Date:</label>
+                  <DatePicker
+                    id="scheduleDate"
+                    selected={scheduleDate}
+                    onChange={handleDateChange}
+                    dateFormat="yyyy-MM-dd"
+                    placeholderText="Select a date"
+                    open={true}
+                  />
+              </div>
+              <div className="form-row">
+                  <label htmlFor="scheduleTime">Schedule Time:</label>
+                  <DatePicker
+                    id="scheduleTime"
+                    selected={scheduleTime}
+                    onChange={handleTimeChange}
+                    showTimeSelect
+                    showTimeSelectOnly
+                    timeIntervals={15}
+                    timeCaption="Time"
+                    dateFormat="h:mm aa"
+                    placeholderText="Select a time"
+                  />
+              </div>
+            </div>
         </div>
+      </div>
     </div>
-  </form>
-</div>
-
   );
 };
 

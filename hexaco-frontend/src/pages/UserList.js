@@ -1,41 +1,39 @@
 import React, { useEffect, useState } from 'react';
+import Table from '../components/TableList/TableList.js';
+import {APIgetUsers} from '../services/APIuserService.js';
+
 
 const UserList = () => {
   const [users, setUsers] = useState([]);
   const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Fetch user data from backend API
-    fetch('http://localhost:5000/users')
-      .then((response) => {
-        if (!response.ok) {
-          
-          throw new Error('Failed to fetch user data');
-        }
-        return response.json();
-      })
-      .then((data) => {
-        console.log(data); // Log the received data
-        setUsers(data);
-      })
-      .catch((error) => {
-        console.error(error); // Log any error that occurs
-        setError(error.message);
-      });
+    getUsers();
   }, []);
+
+  const getUsers = async () => {
+    try {
+      const data = await APIgetUsers();
+      setUsers(data);
+    } catch(error) {
+      console.log(error);
+      setError(error.message);
+    } finally {
+      setIsLoading(false);
+    }
+  }
+  const columns = [{firstname: "First name"}, {lastname: "Last name"}, {email: "e-mail"}, {role: "Role"}];
 
   if (error) {
     return <div>Error: {error}</div>;
   }
 
   return (
-    <div>
-      <h2>User List</h2>
-      <ul>
-        {users.map((user) => (
-          <li key={user.id}>{user.username}</li>
-        ))}
-      </ul>
+    <div className='users-list'>
+      <div className='section-title'>User List</div>
+      <hr />
+      <Table columns={columns} data={users} className="mt-5"/>
     </div>
   );
 };

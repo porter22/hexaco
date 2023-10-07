@@ -6,6 +6,8 @@
     height: 38px;
     min-width: 38px;
     transition: box-shadow .2s;
+    border: none;
+    cursor: pointer;
 
     span{
         font-size: 14px;
@@ -17,9 +19,18 @@
         line-height: 14px;
         letter-spacing: normal;
         display: block;
+        color: #fff;
     }
 
     &.btn-prim{
+        background: #353535;
+    }
+    &.btn-ghost{
+        span{
+            color: #353535;
+        }
+    }
+    &.btn-action{
         background: #4caf50;
     }
 }

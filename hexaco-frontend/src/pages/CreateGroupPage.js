@@ -1,6 +1,13 @@
 import React, { useEffect, useState } from 'react';
+import { APIgetUsers } from '../services/APIuserService.js'
+import { APIcreateGroup } from '../services/APIgroupService.js'
 import { useNavigate } from 'react-router-dom';
-import './CreateGroupPage.css';
+import './CreateGroupPage.scss';
+
+import InputWithLabel from '../components/Inputs/InputWithLabel/InputWithLabel.js';
+import InputUploadFile from '../components/Inputs/InputUploadFile/InputUploadFile.js';
+import DropdownSelect from '../components/Dropdown/DropdownSelect.js';
+import CommonButton from '../components/Buttons/CommonButton/CommonButton.js';
 
 const CreateGroupPage = () => {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -9,128 +16,133 @@ const CreateGroupPage = () => {
   const [groupName, setGroupName] = useState('');
   const [groupUsers, setGroupUsers] = useState([]);
   const [addedUsers, setAddedUsers] = useState([]);
+  const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [isLoadingCreateGroup, setIsLoadingCreateGroup] = useState(false);
+
 
   useEffect(() => {
     const token = localStorage.getItem('token');
-
+  
     if (!token) {
       navigate('/login');
-      return;
+    } else {
+      getUsersList();
     }
-
-    fetch('http://localhost:5000/users', {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error('Failed to fetch user data');
-        }
-        return response.json();
-      })
-      .then((data) => {
-        setUsers(data);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
   }, [navigate]);
+
+
+  const getUsersList = async () => {
+    try{
+      const data = await APIgetUsers();
+      setUsers(data);
+    } catch(error) {
+      console.log(error);
+      setError(error.message);
+    } finally {
+      setIsLoading(false);
+    }
+  }
 
   const handleGroupNameChange = (event) => {
     setGroupName(event.target.value);
   };
-
-  const handleGroupUserChange = (event) => {
-    const userIds = Array.from(event.target.selectedOptions, (option) =>
-      parseInt(option.value)
-    );
-    setGroupUsers(userIds);
-  };
-
-  const handleAddUser = () => {
-    const selectedUser = users.find((user) => user.id === groupUsers[0]);
-    if (selectedUser) {
-      setAddedUsers((prevUsers) => [...prevUsers, selectedUser]);
-      setGroupUsers([]);
+  
+  const handleGroupUserChange = (obj) => {
+    const { id } = obj;
+  
+    const isUserAlreadyAdded = addedUsers.some((user) => user.id === id);
+    if (!isUserAlreadyAdded) {
+      setGroupUsers(id);
+      setAddedUsers((prevUsers) => {
+        const updatedUsers = [...prevUsers, obj];
+        return updatedUsers;
+      });
     }
   };
-
-  const handleCreateGroup = () => {
-    const groupData = {
-      name: groupName,
-      user_ids: addedUsers.map((user) => user.id),
-    };
-  
-    fetch('http://localhost:5000/groups', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(groupData),
-    })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error('Failed to create group');
-        }
-        return response.json();
-      })
-      .then((data) => {
-        console.log('Group created:', data);
-        // Handle any success actions here
-      })
-      .catch((error) => {
-        console.error(error);
-        // Handle any error actions here
-      });
+  const handleRemoveUser = (userToRemove) => {
+    setAddedUsers((prevUsers) =>
+      prevUsers.filter((user) => user.id !== userToRemove.id)
+    );
   };
-  
+
+  const handleCreateGroup = async() => {
+    try{
+      setIsLoadingCreateGroup(true);
+      const payload = {
+        name: groupName,
+        user_ids: addedUsers.map((user) => user.id),
+      };
+      const response = await APIcreateGroup(payload);
+      if (!response.ok) {
+        throw new Error('Failed to create group');
+      }
+      console.log('Success', response)
+    } catch(error) {
+      console.error(error);
+    } finally {
+      setIsLoadingCreateGroup(false); // После завершения загрузки устанавливаем состояние загрузки обратно в false.
+    }
+  };
+  const formattedUsers = users.map(user => ({
+    id: user.id,
+    value: user.id,
+    text: `${user.firstname || ''} ${user.lastname || ''}`
+  }));
 
   return (
-    <div>
-      <h2>Create New Group</h2>
-      <div className="form-container">
-        <div className="form-column">
-          <h3>Group Details</h3>
-          <div className="form-row">
-            <label htmlFor="groupName">Group Name *:</label>
-            <input
-              type="text"
+    <div className='group-details'>
+      <div className='section-title'>Add new group</div>
+      <hr />
+      <div className="form-container d-flex">
+        <div className='col-1-2 mr-4 group-details-column'>
+          <div className='section-header mt-5 mb-3'>Group Details</div>
+          <div className="form-row d-flex group-details-row ">
+          <InputWithLabel
+              inputType="text"
               id="groupName"
+              labelText="Group Name *:"
+              className="mr-5"
+              placeholder="Group Name"
               value={groupName}
               onChange={handleGroupNameChange}
               required
-            />
+            ></InputWithLabel>
+            <DropdownSelect 
+              id="groupUsers"
+              labelText="Add employee to the group:"
+              options={formattedUsers}
+              onSelect={handleGroupUserChange}
+            >
+            </DropdownSelect>
           </div>
-          <div className="form-row">
-          <label htmlFor="groupUsers">Add employee to the group:</label>
-<select
-  id="groupUsers"
-  value={groupUsers}
-  onChange={handleGroupUserChange}
->
-  <option value="">Select a user</option>
-  {users.map((user) => (
-    <option key={user.id} value={user.id}>
-      {user.username}
-    </option>
-  ))}
-</select>
-            <button type="button" onClick={handleAddUser}>
-              Add User
-            </button>
-          </div>
-          <div className="added-users">
-            <h4>Added Users:</h4>
-            <ul>
+          <div className="group-added-users group-details-row">
+            <div className='section-header mt-5 mb-3'>Added Users:</div>
+            <ul className='group-details-list'>
+              {addedUsers.length > 0 && (
+                <li className="group-details-list-element">
+                  <span>Group Members:</span>
+                </li>
+              )}
               {addedUsers.map((user) => (
-                <li key={user.id}>{user.username}</li>
+                <li className="group-details-list-element" key={user.id}>
+                  <span>{user.text}</span>
+                  <span className="icon-close" onClick={() => handleRemoveUser(user)}>&#10006;</span>
+                </li>
               ))}
             </ul>
           </div>
-          <button type="submit" onClick={handleCreateGroup}>
-            Add Group
-          </button>
+
+          <div className='d-flex justify-space-between mt-4'>
+            <div className='group-details-actions'>
+            {isLoadingCreateGroup ? (
+                <div className="loader">Loading...</div>
+              ) : (
+                <CommonButton onClick={handleCreateGroup} classes="btn-prim mr-3">Add Group</CommonButton>
+              )}
+            </div>
+            <div className='employee-details-import'></div>
+          </div>
         </div>
       </div>
     </div>
