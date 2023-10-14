@@ -2,6 +2,7 @@
 
 # Ignore node modules
 frontend/node_modules/
+hexaco-frontend/node_modules/
 
 # Ignore Python virtual environment
 backend/venv/
