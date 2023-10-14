@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import { APIgetUsers } from '../services/APIuserService.js'
 import {APIgetGroups} from '../services/APIgroupService.js';
-import { APIgetForms, APIgetResults } from '../services/APIassesmentService.js';
+import { APIgetForms, APIgetResults, APIgenerateReport } from '../services/APIassesmentService.js';
 import DropdownSelect from '../components/Dropdown/DropdownSelect.js';
 import CommonButton from '../components/Buttons/CommonButton/CommonButton.js';
 import Table from '../components/TableList/TableList.js';
@@ -87,16 +87,8 @@ const ResultsPage = () => {
   }
 
   const generateReport = async () => {
-    const url = 'http://localhost:5000/generate-report/${selectedEmployee}/${selectedAssessmentType}';
-
     try {
-      const response = await fetch(url, {
-        method: 'GET',
-      });
-
-      const data = await response.json();
-      console.log(data)
-
+      const data = await APIgenerateReport(selectedEmployee.value, selectedAssessmentType.value)
       setReportText(data.report);
 
     } catch (error) {
@@ -154,11 +146,11 @@ const ResultsPage = () => {
   const columns = [
     {firstName: "First name"}, 
     {lastName: "Last name"}, 
-    {observant_id: "Observant ID"}, 
-    {form_id: "Form ID"},
+    // {observant_id: "Observant ID"}, 
+    // {form_id: "Form ID"},
     {assessmentTitle: "Form title"},
     {submitted_at: "Submitted At"},
-    {event_id: "Response ID"},
+    // {event_id: "Response ID"},
     {link: "Details"}
   ];
 
@@ -171,10 +163,11 @@ const ResultsPage = () => {
     }
     return true;
   }).map((response) => {
+    console.log('response', response)
     const user = users.find((user) => user.id === response.user_id);
     const assessmentType = assessmentTypes.find((type) => type.id === response.form_id);
-    const detailURL = `/response-details/${response.id}`;
-    console.log(response)
+    //  @TODO which id should be here?
+    const detailURL = `/response-details/${response.event_id}`;
     return {
       ...response,
       firstName: user?.firstname || '',

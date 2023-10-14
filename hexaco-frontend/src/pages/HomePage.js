@@ -19,9 +19,9 @@ const HomePage = () => {
   };
   return (
     <div className='homepage'>
-      <div className='section-title'>Dashboard</div>
-      <div className='d-flex'>
-        <div className='section-header mt-5 mb-3'>Assessment Fill Rate</div>
+      <div className='section-title mb-5'>Dashboard</div>
+      <div className='section-header mt-5 mb-3'>Assessment Fill Rate</div>
+      <div className='d-flex justify-space-between'>
         <div>
           <PieChart data={data} options={options} />
         </div>

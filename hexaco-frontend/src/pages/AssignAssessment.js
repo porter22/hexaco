@@ -238,7 +238,6 @@ const AssignAssessment = () => {
                     onChange={handleDateChange}
                     dateFormat="yyyy-MM-dd"
                     placeholderText="Select a date"
-                    open={true}
                   />
               </div>
               <div className="form-row">

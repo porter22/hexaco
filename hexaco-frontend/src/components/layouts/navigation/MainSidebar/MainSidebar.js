@@ -13,8 +13,8 @@ const links = [
     { to: '/admin', text: 'Add Employee',  icon: faUser },
     { to: '/create-group', text: 'Create Group', icon: faUserPlus },
     { to: '/results', text: 'Analytics',  icon: faChartPie},
-    { to: '/questionlist', text: 'Question List',  icon: faClipboardQuestion  },
-    { to: '/responseform', text: 'Response Form',  icon: faClipboard  },
+    // { to: '/questionlist', text: 'Question List',  icon: faClipboardQuestion  },
+    // { to: '/responseform', text: 'Response Form',  icon: faClipboard  },
     // Добавьте другие ссылки при необходимости
   ];
 

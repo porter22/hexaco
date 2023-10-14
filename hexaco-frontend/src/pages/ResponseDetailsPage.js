@@ -3,6 +3,10 @@ import { Link, useParams  } from 'react-router-dom';
 import Axios from 'axios';
 import './ResponseDetailsPage.css';
 
+import { APIgetForms, APIgetResults } from '../services/APIassesmentService.js';
+import { APIgetUsers } from '../services/APIuserService.js'
+import { APIgetResultDetails } from '../services/APIassesmentService.js';
+
 const ResponseDetailsPage  = () => {
   const [selectedEmployee, setSelectedEmployee] = useState('');
   const [selectedAssessmentType, setSelectedAssessmentType] = useState('');
@@ -11,50 +15,72 @@ const ResponseDetailsPage  = () => {
   const [assessmentTypes, setAssessmentTypes] = useState([]);
   const [formResponses, setFormResponses] = useState([]);
   const [resultDetails, setResultDetails] = useState([]);
+  const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
-  console.log('event_id:', event_id)
-  console.log('resultDetails:', resultDetails)
+  // console.log('event_id:', event_id)
+  // console.log('resultDetails:', resultDetails)
 
 
     useEffect(() => {
-        fetch('http://localhost:5000/forms')
-            .then(response => response.json())
-            .then(data => setAssessmentTypes(data))
-            .catch(error => console.error('Error:', error));
+      getForms();
+      getUsersList();
     }, []);
 
-    useEffect(() => {
-      Axios.get('http://localhost:5000/users')
-        .then(response => setUsers(response.data))
-        .catch(error => console.error('Error:', error));
-    }, []);
+    // @TODO not clear 
+    // useEffect(() => {
+    //   let url = 'http://localhost:5000/results';
+    //   if (selectedEmployee) {
+    //     url = `http://localhost:5000/results/${selectedEmployee}`;
+    //   }
+    
+    //   fetch(url)
+    //     .then((response) => response.json())
+    //     .then((data) => setFormResponses(data))
+    //     .catch((error) => console.error('Error:', error));
+    
+    // }, [selectedEmployee, users]);
 
     useEffect(() => {
-      let url = 'http://localhost:5000/results';
-      if (selectedEmployee) {
-        url = `http://localhost:5000/results/${selectedEmployee}`;
-      }
+      getResultDetails()
+    },[resultDetails, event_id]);
     
-      fetch(url)
-        .then((response) => response.json())
-        .then((data) => setFormResponses(data))
-        .catch((error) => console.error('Error:', error));
-    
-    }, [selectedEmployee, users]);
 
-    useEffect(() => {
-      let url = 'http://localhost:5000/result_details';
-      if (event_id) {
-        url = `http://localhost:5000/result_details/${event_id}`;
+    const getResultDetails = async() => {
+      try {
+        const eventID = event_id ? event_id : null;
+        const data = await APIgetResultDetails(eventID);
+        setResultDetails(data);
+      } catch (err) {
+        console.log(error);
+        setError(error.message);
+      } finally {
+        setIsLoading(false);
       }
-    
-      fetch(url)
-        .then((response) => response.json())
-        .then((data) => setResultDetails(data))
-        .catch((error) => console.error('Error:', error));
-    
-    }, [resultDetails, event_id]);
-    
+    }
+
+    const getForms = async () => {
+      try{
+        const data = await APIgetForms();
+        setAssessmentTypes(data);
+      } catch(error) {
+        console.log(error);
+        setError(error.message);
+      } finally {
+        setIsLoading(false);
+      }
+    }
+    const getUsersList = async () => {
+      try{
+        const data = await APIgetUsers();
+        setUsers(data);
+      } catch(error) {
+        console.log(error);
+        setError(error.message);
+      } finally {
+        setIsLoading(false);
+      }
+    }
 
     // Filter form responses based on selectedEmployee and selectedAssessmentType
     const filteredFormResponses = formResponses.filter((response) => {
@@ -68,8 +94,6 @@ const ResponseDetailsPage  = () => {
     }).map((response) => {
       const user = users.find((user) => user.id === response.user_id);
       const assessmentType = assessmentTypes.find((type) => type.id === response.form_id);
-      //console.log(response)
-      //console.log(user)
       return {
         ...response,
         firstName: user?.firstname || '',
@@ -79,41 +103,35 @@ const ResponseDetailsPage  = () => {
     });
     
   return (
-    <div class="form-block">
-
-        <div>
-          <h1>Response Details Page</h1>
-          <p>Response ID: {event_id}</p>
-          {/* Display the details of the response */}
-    </div>
-            
-    <div>
-      <h1>Survey Results</h1>
-      <table border="1" cellPadding="5" cellSpacing="0">
-        <thead>
-          <tr>
-            <th>Field Title</th>
-            <th>Answer</th>
-          </tr>
-        </thead>
-        <tbody>
-          {resultDetails.map((item, index) => (
-            <tr key={index}>
-              <td>{item.field_title}</td>
-              <td>
-                {item.answer_type === 'text' && item.answer_text}
-                {item.answer_type === 'choice' && item.answer_choice_label}
-                {item.answer_type === 'number' && item.answer_number}
-              </td>
+    <div className='result-details'>
+      <div className='section-title'>Response Details Page</div>
+      <hr />
+      <div className="form-container d-flex reports-header mb-5">
+        <div className='section-header mt-5 mb-3'>Response ID: {event_id}</div>
+      </div>  
+      <div>
+        <div className='section-header'>Survey Results</div>
+        <table border="1" cellPadding="5" cellSpacing="0">
+          <thead>
+            <tr>
+              <th>Field Title</th><th>Answer</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-
-    
-</div>
-
+          </thead>
+          <tbody>
+            {resultDetails.map((item, index) => (
+              <tr key={index}>
+                <td>{item.field_title}</td>
+                <td>
+                  {item.answer_type === 'text' && item.answer_text}
+                  {item.answer_type === 'choice' && item.answer_choice_label}
+                  {item.answer_type === 'number' && item.answer_number}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+  </div>
   );
 };
 

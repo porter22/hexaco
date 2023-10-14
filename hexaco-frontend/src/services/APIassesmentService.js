@@ -18,3 +18,15 @@ export const APIgetForms = () => {
 export const APIgetResults = () => {
     return axios.get('http://127.0.0.1:8081/results.json').then(({ data }) => data);
 }
+
+export const APIgetResultDetails = (eventID) => {
+    // if(eventID){
+    //     return axios.get('http://127.0.0.1:8081/results.json?eventID').then(({ data }) => data);
+    // }
+    return axios.get('http://127.0.0.1:8081/result_details.json').then(({ data }) => data);
+}
+
+export const APIgenerateReport = (employeeId, assessmentType) => {
+    // return axios.get(`http://127.0.0.1:8081/generate-report/${employeeId}/${assessmentType}`)
+    return axios.get(`http://127.0.0.1:8081/generate-report/${employeeId}/${assessmentType}.json`)
+}
