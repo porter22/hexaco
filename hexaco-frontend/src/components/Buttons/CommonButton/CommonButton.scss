@@ -33,4 +33,11 @@
     &.btn-action{
         background: #4caf50;
     }
+    &.disabled{
+        background-color: #eaeaea;
+
+        span{
+            color: #aeadad;
+        }
+    }
 }

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import DatePicker from 'react-datepicker';
-import {APIcreateAssesment, APIgetForms} from '../services/APIassesmentService.js';
+import {APIcreateAssesment, APIgetForms, APIgetAssesments} from '../services/APIassesmentService.js';
 import {APIgetGroups} from '../services/APIgroupService.js';
 import {APIgetUsers} from '../services/APIuserService.js';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -10,6 +10,7 @@ import Checkbox from '../components/Checkbox/Checkbox.js';
 import DropdownSelect from '../components/Dropdown/DropdownSelect.js';
 import CommonButton from '../components/Buttons/CommonButton/CommonButton.js';
 import RadioButton from '../components/RadioButton/RadioButton.js';
+import Table from '../components/TableList/TableList.js';
 
 const AssignAssessment = () => {
   const [assessmentCategory, setAssessmentCategory] = useState('group');
@@ -26,9 +27,18 @@ const AssignAssessment = () => {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [isLoadingCreateAssign, setIsLoadingCreateAssign] = useState(false);
-
+  const [assessmentData, setAssessmentData] = useState([]);
+  const columns = [
+    {fullName: "Full name"}, 
+    {assesmentName: "Assessment name"}, 
+    {observantName: "Observant"},
+    {observerEmail: "Observer email"},
+    {assessment_url: "URL"},
+    {assessment_status: "Status"}
+  ];
 
   useEffect(() => {
+      getAssesments();
       getUsers();
       getUserGroups();
       getForms();
@@ -39,21 +49,32 @@ const AssignAssessment = () => {
       setIsLoadingCreateAssign(true)
       const scheduledAssessmentData = {
         selectedEmployee: selectedEmployee,
-        //user_ids: addedUsers.map((user) => user.id),
         selectedGroup: selectedGroup,
         selectedObserver: selectedObserver,
         isNotify: setNotification,
-        selectedAssessmentType: selectedAssessmentType, //assessment_id
-        selectedAssessmentCategory: assessmentCategory, //Individual or group
+        selectedAssessmentType: selectedAssessmentType, 
+        selectedAssessmentCategory: assessmentCategory,
         scheduleDate: scheduleDate,
         scheduleTime: scheduleTime
       };
-      const data = await APIcreateAssesment(scheduledAssessmentData);
-      console.log('Assessment scheduled:', data);
+      await APIcreateAssesment(scheduledAssessmentData);
+      getAssesments();
     }catch(error){
       console.error(error);
     }finally{
       setIsLoadingCreateAssign(false)
+    }
+  }
+
+  const getAssesments = async () => {
+    try{
+      const assessments = await APIgetAssesments();
+      setAssessmentData(assessments);
+    } catch(error) {
+      console.log(error);
+      setError(error.message);
+    } finally {
+      setIsLoading(false);
     }
   }
 
@@ -124,9 +145,20 @@ const AssignAssessment = () => {
     setScheduleTime(time);
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Handle form submission logic here
+  const formatAssessments = () => {
+    return assessmentData.map((item) => {
+      const fullName = `${item.employee_firstname || ''} ${item.employee_lastname || ''}`.trim();
+      const observantName = `${item.observer_firstname || ''} ${item.observer_lastname || ''}`.trim();
+  
+      return {
+        fullName,
+        assessmentName: item.selected_assessment_title,
+        observantName,
+        observerEmail: item.observer_email,
+        assessment_url: item.assessment_url,
+        assessment_status: item.assessment_status
+      };
+    });
   };
   const formattedGroups = groups.map(group => ({
       id: group.id,
@@ -186,12 +218,24 @@ const AssignAssessment = () => {
                 </DropdownSelect>
             )}
             {assessmentCategory === 'individual' && (
-                <DropdownSelect 
-                  id="employee"
-                  labelText="Select Employee:"
-                  options={formattedUsers}
-                  onSelect={handleEmployeeChange}
-                />
+              <div>
+                <div className="form-row mb-5">
+                  <DropdownSelect 
+                    id="employee"
+                    labelText="Select Employee:"
+                    options={formattedUsers}
+                    onSelect={handleEmployeeChange}
+                  />
+                </div>
+                <div className="form-row mb-5">
+                  <DropdownSelect 
+                    id="observer"
+                    labelText="Select Assessors:"
+                    options={formattedUsersName}
+                    onSelect={handleObserverChange}
+                  />
+                </div>
+              </div>
             )}
             <div className="form-row mb-5">
               <DropdownSelect 
@@ -212,25 +256,21 @@ const AssignAssessment = () => {
               {isLoadingCreateAssign ? (
                   <div className="loader">Loading...</div>
                 ) : (
-                  <CommonButton onClick={handleScheduledAssessment} classes="btn-prim mr-3">Assign</CommonButton>
+                  <CommonButton onClick={handleScheduledAssessment} 
+                  disabled={
+                    (assessmentCategory === 'group' && (!selectedGroup || !selectedAssessmentType)) ||
+                    (assessmentCategory === 'individual' && (!selectedEmployee || !selectedAssessmentType || !selectedObserver)) ||
+                    isLoadingCreateAssign
+                  }
+                  classes="btn-prim mr-3">Assign assessment</CommonButton>
                 )}
               </div>
               <div className='employee-details-import'></div>
             </div>
         </div>
-        {assessmentCategory === 'individual' && (
-          <div className="col-1-2 mr-4 assessment-details-column">
-            <DropdownSelect 
-                id="observer"
-                labelText="Select Assessors:"
-                options={formattedUsersName}
-                onSelect={handleObserverChange}
-              />
-          </div>
-        )}
-        <div className="col-1-2 mr-4 assessment-details-column">
+        <div className="col-1-2 ml-4 assessment-details-column d-flex align-end">
           <div className="w-layout-blockcontainer container">
-              <div className="form-row">
+              <div className="form-row mb-2">
                   <label htmlFor="scheduleDate" >Schedule Date:</label>
                   <DatePicker
                     id="scheduleDate"
@@ -256,6 +296,9 @@ const AssignAssessment = () => {
               </div>
             </div>
         </div>
+      </div>
+      <div>
+        <Table columns={columns} data={formatAssessments()} className="mt-5"></Table>
       </div>
     </div>
   );

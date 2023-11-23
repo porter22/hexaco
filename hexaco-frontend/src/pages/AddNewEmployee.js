@@ -123,11 +123,11 @@ const AddNewEmployee = () => {
 
   return (
     <div className='employee-details'>
-      <div className='section-title'>Add new employee</div>
+      <div className='section-title'>Add new user</div>
       <hr />
       <div className="form-container d-flex">
         <div className='col-1-2 mr-4 employee-details-column'>
-          <div className='section-header mt-5 mb-3'>Employee details</div>
+          <div className='section-header mt-5 mb-3'>User details</div>
             <div className='employee-details-form gap-pb-6'>
               <div className='employee-details-form__row'></div>
               <InputWithLabel

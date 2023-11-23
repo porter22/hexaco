@@ -18,14 +18,21 @@ const ResponseDetailsPage  = () => {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
-  // console.log('event_id:', event_id)
-  // console.log('resultDetails:', resultDetails)
+  const numberToText = {
+    5: 'Полностью согласен',
+    4: 'Согласен',
+    3: 'Нейтрально',
+    2: 'Не согласен',
+    1: 'Полностью не согласен'
+  };
 
-
-    useEffect(() => {
-      getForms();
-      getUsersList();
-    }, []);
+  useEffect(() => {
+    getForms();
+    getUsersList();
+  }, []);
+  useEffect(() => {
+    getResultDetails();
+  }, [event_id]);
 
     // @TODO not clear 
     // useEffect(() => {
@@ -40,11 +47,6 @@ const ResponseDetailsPage  = () => {
     //     .catch((error) => console.error('Error:', error));
     
     // }, [selectedEmployee, users]);
-
-    useEffect(() => {
-      getResultDetails()
-    },[resultDetails, event_id]);
-    
 
     const getResultDetails = async() => {
       try {
@@ -124,7 +126,7 @@ const ResponseDetailsPage  = () => {
                 <td>
                   {item.answer_type === 'text' && item.answer_text}
                   {item.answer_type === 'choice' && item.answer_choice_label}
-                  {item.answer_type === 'number' && item.answer_number}
+                  {item.answer_type === 'number' && numberToText[item.answer_number]}
                 </td>
               </tr>
             ))}

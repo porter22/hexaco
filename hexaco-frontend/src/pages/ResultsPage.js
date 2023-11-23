@@ -25,17 +25,15 @@ const ResultsPage = () => {
   const [formResponses, setFormResponses] = useState([]);
 
   const [reportText, setReportText] = useState("");
-
+  const [isTableVisible, setIsTableVisible] = useState(true);
 
   useEffect(() => {
     getUsersList();
     getGroupsList();
     getForms();
-  }, []);
-  
-  useEffect(() => {
     getResults();
-  }, [selectedEmployee, users]);
+  }, []);
+
 
   const getUsersList = async () => {
     try{
@@ -75,8 +73,8 @@ const ResultsPage = () => {
 
   const getResults = async () => {
     try{
-      let employeeId = selectedEmployee ? selectedEmployee : 0;
-      const data = await APIgetResults(employeeId);
+      // let employeeId = selectedEmployee ? selectedEmployee : 0;
+      const data = await APIgetResults();
       setFormResponses(data);
     } catch(error) {
       console.log(error);
@@ -95,7 +93,14 @@ const ResultsPage = () => {
       console.error("There was an error generating the report:", error);
     }
   }
-      
+  function formatReportText() {
+    const paragraphs = reportText.split(/\d+\./).filter(Boolean);
+  
+    return paragraphs.map((paragraph, index) => (
+      <p key={index}>{paragraph.trim()}</p>
+    ));
+
+  }
   const formattedUsers = users.filter(user => user.role === 'pemployee').map(user => ({
     id: user.id,
     value: user.id,
@@ -121,10 +126,7 @@ const ResultsPage = () => {
   };
 
   const handleEmployeeChange = (value) => {
-    const selectedValue = value;
-  
-    // Update the selectedEmployee state
-    setSelectedEmployee(selectedValue);
+    setSelectedEmployee(value);
   };
 
   const handleObserverChange = (e) => {
@@ -143,30 +145,29 @@ const ResultsPage = () => {
     e.preventDefault();
     // Handle form submission logic here
   };
+  const toggleTableVisibility = () => {
+    setIsTableVisible(!isTableVisible);
+  };
   const columns = [
     {firstName: "First name"}, 
-    {lastName: "Last name"}, 
-    // {observant_id: "Observant ID"}, 
-    // {form_id: "Form ID"},
+    {lastName: "Last name"},
     {assessmentTitle: "Form title"},
     {submitted_at: "Submitted At"},
-    // {event_id: "Response ID"},
     {link: "Details"}
   ];
 
   const filteredFormResponses = formResponses.filter((response) => {
-    if (selectedEmployee && response.user_id !== parseInt(selectedEmployee)) {
-      return false;
-    }
-    if (selectedAssessmentType && response.form_id !== selectedAssessmentType) {
-      return false;
-    }
+    // @COMMENT if need relation with selected employee
+    // if (selectedEmployee && response.user_id !== parseInt(selectedEmployee)) {
+    //   return false;
+    // }
+    // if (selectedAssessmentType && response.form_id !== selectedAssessmentType) {
+    //   return false;
+    // }
     return true;
   }).map((response) => {
-    console.log('response', response)
     const user = users.find((user) => user.id === response.user_id);
     const assessmentType = assessmentTypes.find((type) => type.id === response.form_id);
-    //  @TODO which id should be here?
     const detailURL = `/response-details/${response.event_id}`;
     return {
       ...response,
@@ -200,17 +201,30 @@ const ResultsPage = () => {
             className="mr-4"
           >
           </DropdownSelect>
-          <CommonButton onClick={generateReport} classes="btn-action mr-3">Generate Report</CommonButton>
+          <CommonButton onClick={generateReport}
+            disabled={
+              (!selectedEmployee || !selectedAssessmentType)
+            }
+            classes="btn-action mr-3">
+              Generate Report
+          </CommonButton>
         </div>
-        <div className="reports-wrapper">
-          <Table columns={columns} data={filteredFormResponses} className="mt-5">
-          </Table>
+      <div className="reports-wrapper">
+        <span onClick={toggleTableVisibility} style={{ cursor: 'pointer', marginLeft: '10px' }}>
+          {isTableVisible ? 'Collapse Table' : 'Expand Table'}
+        </span>
+        {isTableVisible && (
+          <div>
+            <Table columns={columns} data={filteredFormResponses} className="mt-5">
+            </Table>
+          </div>
+           )}
           <div className="report-section">
             <h2>Generated Report:</h2>
-            <p>{reportText}</p>
+            <p>{formatReportText()}</p>
           </div>
-        </div>
       </div>
+    </div>
   );
 };
 

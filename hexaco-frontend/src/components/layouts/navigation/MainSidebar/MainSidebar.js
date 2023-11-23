@@ -19,10 +19,11 @@ const links = [
   ];
 
 
-function MainSidebar({ onSidebarValue }) {
+  function MainSidebar({ onSidebarValue }) {
     const [isSidebarExpanded, setSidebarExpanded] = useState(true);
     const [isSidebarFixed, setSidebarFixed] = useState(false);
     const [sidebarWidth, setSidebarWidth] = useState(250);
+    const isLoggedIn = localStorage.getItem('token'); // Проверяем наличие токена в localStorage
 
     const toggleSidebar = () => {
         setSidebarExpanded(!isSidebarExpanded);
@@ -32,6 +33,11 @@ function MainSidebar({ onSidebarValue }) {
     const fixSidebar = () => {
         setSidebarFixed(!isSidebarFixed);
     };
+
+    // Отфильтровать ссылку "Login" на основе наличия токена
+    const filteredLinks = links.filter((link) => {
+        return !(link.to === '/login' && isLoggedIn); // Скрыть ссылку "Login" при наличии токена
+    });
 
     return (
         <div id='sidebar__mn' className={`sidebar__mna ${isSidebarFixed ? 'fixed' : ''}`} style={{ width: sidebarWidth }}>
@@ -45,25 +51,21 @@ function MainSidebar({ onSidebarValue }) {
                     </div>
                 </div>
                 <div className='sidebar__mn-content'>
-                <ul className='list'>
-                    {links.map((link, index) => (
-                        <li className='sidebar__list-item d-flex align-center' key={index}>
-                             
+                    <ul className='list'>
+                        {filteredLinks.map((link, index) => (
+                            <li className='sidebar__list-item d-flex align-center' key={index}>
                                 <div className='list--title'>
-                                {link.icon && (<FontAwesomeIcon icon={link.icon} />)}
-                                    
+                                    {link.icon && (<FontAwesomeIcon icon={link.icon} />)}
                                     <div className='list--title__content'>
                                         <Link to={link.to}>{link.text}</Link>
                                     </div>
                                 </div>
-                            
-                        </li>
-                    ))}
+                            </li>
+                        ))}
                     </ul>
                 </div>
                 <div className='sidebar__mn-footer'></div>
             </nav>
-            
         </div>
     );
 }
